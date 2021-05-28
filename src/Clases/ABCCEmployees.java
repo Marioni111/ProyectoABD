@@ -137,21 +137,21 @@ public class ABCCEmployees extends javax.swing.JFrame {
             }
         });
 
-        btnCambiar.setText("Change");
+        btnCambiar.setText("Modificar");
         btnCambiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCambiarActionPerformed(evt);
             }
         });
 
-        btnRegresar.setText("Back");
+        btnRegresar.setText("Regresar");
         btnRegresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegresarActionPerformed(evt);
             }
         });
 
-        btnEliminar.setText("Delete");
+        btnEliminar.setText("Eliminar");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminarActionPerformed(evt);
@@ -166,14 +166,14 @@ public class ABCCEmployees extends javax.swing.JFrame {
 
         jLabel4.setText("Emp no:");
 
-        btnAgregar.setText("Add");
+        btnAgregar.setText("Agregar");
         btnAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAgregarActionPerformed(evt);
             }
         });
 
-        btnLimpiar.setText("Clear");
+        btnLimpiar.setText("Limpiar");
         btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLimpiarActionPerformed(evt);
@@ -216,52 +216,49 @@ public class ABCCEmployees extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(cobGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 21, Short.MAX_VALUE)
+                .addGroup(panelABCCEmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelABCCEmployeesLayout.createSequentialGroup()
+                        .addComponent(lblCantidad5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(spnA2, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cobMes2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(spnDia2, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelABCCEmployeesLayout.createSequentialGroup()
+                        .addComponent(lblPlataforma5)
+                        .addGap(14, 14, 14)
+                        .addComponent(spnA, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cobMes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(spnDia, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+            .addGroup(panelABCCEmployeesLayout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(jLabel4)
+                .addGap(18, 18, 18)
+                .addComponent(txtIdEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(473, Short.MAX_VALUE))
+            .addGroup(panelABCCEmployeesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel5)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelABCCEmployeesLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(panelABCCEmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelABCCEmployeesLayout.createSequentialGroup()
                         .addComponent(btnRegresar)
-                        .addGap(28, 28, 28))
+                        .addGap(18, 18, 18))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelABCCEmployeesLayout.createSequentialGroup()
-                        .addGroup(panelABCCEmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelABCCEmployeesLayout.createSequentialGroup()
-                                .addComponent(lblCantidad5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(spnA2, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cobMes2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(spnDia2, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(panelABCCEmployeesLayout.createSequentialGroup()
-                                .addComponent(lblPlataforma5)
-                                .addGap(14, 14, 14)
-                                .addComponent(spnA, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cobMes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(spnDia, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap())))
-            .addGroup(panelABCCEmployeesLayout.createSequentialGroup()
-                .addGroup(panelABCCEmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelABCCEmployeesLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel5))
-                    .addGroup(panelABCCEmployeesLayout.createSequentialGroup()
-                        .addGroup(panelABCCEmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelABCCEmployeesLayout.createSequentialGroup()
-                                .addGap(33, 33, 33)
-                                .addComponent(jLabel4)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtIdEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(panelABCCEmployeesLayout.createSequentialGroup()
-                                .addGap(121, 121, 121)
-                                .addComponent(btnAgregar)
-                                .addGap(34, 34, 34)
-                                .addComponent(btnCambiar)
-                                .addGap(36, 36, 36)
-                                .addComponent(btnEliminar)
-                                .addGap(39, 39, 39)
-                                .addComponent(btnLimpiar)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addComponent(btnAgregar)
+                        .addGap(34, 34, 34)
+                        .addComponent(btnCambiar)
+                        .addGap(36, 36, 36)
+                        .addComponent(btnEliminar)
+                        .addGap(39, 39, 39)
+                        .addComponent(btnLimpiar)
+                        .addGap(105, 105, 105))))
         );
         panelABCCEmployeesLayout.setVerticalGroup(
             panelABCCEmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -270,11 +267,11 @@ public class ABCCEmployees extends javax.swing.JFrame {
                 .addGroup(panelABCCEmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtIdEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
-                .addGap(11, 11, 11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel5)
                 .addGroup(panelABCCEmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelABCCEmployeesLayout.createSequentialGroup()
-                        .addGap(36, 36, 36)
+                        .addGap(41, 41, 41)
                         .addGroup(panelABCCEmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblPlataforma5)
                             .addComponent(cobMes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -285,22 +282,9 @@ public class ABCCEmployees extends javax.swing.JFrame {
                             .addComponent(lblCantidad5)
                             .addComponent(cobMes2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(spnA2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(spnDia2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(panelABCCEmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelABCCEmployeesLayout.createSequentialGroup()
-                                .addGap(42, 42, 42)
-                                .addGroup(panelABCCEmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(btnAgregar)
-                                    .addComponent(btnCambiar)
-                                    .addComponent(btnEliminar)
-                                    .addComponent(btnLimpiar))
-                                .addContainerGap(33, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelABCCEmployeesLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnRegresar)
-                                .addContainerGap())))
+                            .addComponent(spnDia2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(panelABCCEmployeesLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
+                        .addGap(23, 23, 23)
                         .addGroup(panelABCCEmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtNombreEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblTitulo5))
@@ -311,8 +295,16 @@ public class ABCCEmployees extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(panelABCCEmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblGenero5)
-                            .addComponent(cobGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                            .addComponent(cobGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addGroup(panelABCCEmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAgregar)
+                    .addComponent(btnCambiar)
+                    .addComponent(btnEliminar)
+                    .addComponent(btnLimpiar))
+                .addGap(7, 7, 7)
+                .addComponent(btnRegresar)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         spnA.getAccessibleContext().setAccessibleName("");
@@ -361,7 +353,7 @@ public class ABCCEmployees extends javax.swing.JFrame {
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblVender2, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+                .addComponent(lblVender2, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
                 .addContainerGap())
         );
 

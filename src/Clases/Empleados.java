@@ -27,7 +27,7 @@ public class Empleados extends javax.swing.JFrame {
     ArrayList<String> carrito = new ArrayList<String>();
     
     IniciarSesion iniciarSesion = new IniciarSesion();
-    Vender vender = new Vender();
+    Salarios vender = new Salarios();
     HacerPedido hacerPedido = new HacerPedido();
     ABCCEmployees cambiar = new ABCCEmployees();
     
