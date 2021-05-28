@@ -160,11 +160,13 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="btnCambios" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
+                          <Component id="btnCambios" min="-2" max="-2" attributes="0"/>
+                      </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
                           <Component id="lblImprimirCompra" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -187,8 +189,8 @@
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lblVender" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lblImprimirCompra" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblVender" alignment="1" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
@@ -249,7 +251,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial" size="11" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Manage employees"/>
+            <Property name="text" type="java.lang.String" value="Administrar empleados"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblVender">
@@ -257,7 +259,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial" size="11" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Salaries"/>
+            <Property name="text" type="java.lang.String" value="Salarios"/>
           </Properties>
         </Component>
       </SubComponents>

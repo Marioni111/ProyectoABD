@@ -28,7 +28,6 @@ public class Empleados extends javax.swing.JFrame {
     
     IniciarSesion iniciarSesion = new IniciarSesion();
     Salarios vender = new Salarios();
-    HacerPedido hacerPedido = new HacerPedido();
     ABCCEmployees cambiar = new ABCCEmployees();
     
     public Empleados() {
@@ -126,21 +125,22 @@ public class Empleados extends javax.swing.JFrame {
         });
 
         lblImprimirCompra.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        lblImprimirCompra.setText("Manage employees");
+        lblImprimirCompra.setText("Administrar empleados");
 
         lblVender.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        lblVender.setText("Salaries");
+        lblVender.setText("Salarios");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(66, 66, 66)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnCambios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
+                        .addGap(66, 66, 66)
+                        .addComponent(btnCambios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(79, 79, 79)
                         .addComponent(lblImprimirCompra)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 193, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -156,8 +156,8 @@ public class Empleados extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(61, 61, 61)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblImprimirCompra)
-                    .addComponent(lblVender))
+                    .addComponent(lblVender)
+                    .addComponent(lblImprimirCompra))
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(26, 26, 26)
