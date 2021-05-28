@@ -346,16 +346,16 @@ public class ABCCEmployees extends javax.swing.JFrame {
         lblVender2.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         lblVender2.setForeground(new java.awt.Color(255, 255, 255));
         lblVender2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblVender2.setText("Cambios/Bajas");
+        lblVender2.setText("Agrega, modifica, consulta o elimina reguistros de empleados");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addComponent(lblVender2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(22, 22, 22)
+                .addComponent(lblVender2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(22, 22, 22))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
