@@ -29,7 +29,7 @@ public class Empleados extends javax.swing.JFrame {
     IniciarSesion iniciarSesion = new IniciarSesion();
     Vender vender = new Vender();
     HacerPedido hacerPedido = new HacerPedido();
-    CambiarEliminar cambiar = new CambiarEliminar();
+    ABCCEmployees cambiar = new ABCCEmployees();
     
     public Empleados() {
         initComponents();
