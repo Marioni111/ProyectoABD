@@ -163,7 +163,7 @@ public class IniciarSesion extends javax.swing.JFrame {
         Conexiones.Conexion.setCuenta(txtUsuario.getText(), txtPassword.getText());
         Conexiones.Conexion.getConnection();
         if(Conexiones.Conexion.getStatus()){
-            JuegosDisponibles obj = new JuegosDisponibles();
+            Empleados obj = new Empleados();
             obj.setVisible(true);
             this.dispose();
         } else {
@@ -187,7 +187,7 @@ public class IniciarSesion extends javax.swing.JFrame {
             Conexiones.Conexion.getConnection();
 
             if(Conexiones.Conexion.getStatus()){
-                JuegosDisponibles obj = new JuegosDisponibles();
+                Empleados obj = new Empleados();
                 obj.setVisible(true);
                 this.dispose();
             } else {

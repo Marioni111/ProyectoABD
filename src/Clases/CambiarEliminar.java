@@ -5,7 +5,7 @@
  */
 package Clases;
 
-import static Clases.JuegosDisponibles.res;
+import static Clases.Empleados.res;
 import Conexiones.Procedimientos;
 import java.sql.ResultSet;
 import java.sql.SQLException;
