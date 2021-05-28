@@ -31,18 +31,35 @@ public class Salarios extends javax.swing.JFrame {
         mostrarJuegosDisponibles(TablaSalarios, "SELECT * FROM Vista_Juegos_Disponibles;");
         
         SpinnerNumberModel modeloSpinner = new SpinnerNumberModel();
-        modeloSpinner.setMaximum(999);
-        modeloSpinner.setMinimum(10);
-        modeloSpinner.setStepSize(10);
-        modeloSpinner.setValue(10);
-        spnSalario.setModel(modeloSpinner);
+        modeloSpinner.setMaximum(2200);
+        modeloSpinner.setMinimum(0);
+        modeloSpinner.setStepSize(1);
+        modeloSpinner.setValue(0);
+        spnA.setModel(modeloSpinner);
+        spnA2.setModel(modeloSpinner);
         
         SpinnerNumberModel modeloSpinner2 = new SpinnerNumberModel();
-        modeloSpinner2.setMaximum(300);
-        modeloSpinner2.setMinimum(1);
+        modeloSpinner2.setMaximum(31);
+        modeloSpinner2.setMinimum(0);
         modeloSpinner2.setStepSize(1);
-        modeloSpinner2.setValue(1);
-        spnCantidad.setModel(modeloSpinner2);
+        modeloSpinner2.setValue(0);
+        spnDia.setModel(modeloSpinner2);
+        spnDia2.setModel(modeloSpinner2);
+        
+        SpinnerNumberModel modeloSpinner3 = new SpinnerNumberModel();
+        modeloSpinner3.setMaximum(2200);
+        modeloSpinner3.setMinimum(0);
+        modeloSpinner3.setStepSize(1);
+        modeloSpinner3.setValue(0);
+        spnA2.setModel(modeloSpinner3);
+        
+        SpinnerNumberModel modeloSpinner4 = new SpinnerNumberModel();
+        modeloSpinner4.setMaximum(31);
+        modeloSpinner4.setMinimum(0);
+        modeloSpinner4.setStepSize(1);
+        modeloSpinner4.setValue(0);
+        spnDia2.setModel(modeloSpinner4);
+        
     }
 
     /**
@@ -77,6 +94,7 @@ public class Salarios extends javax.swing.JFrame {
         btnCambiar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
         btnLimpiar = new javax.swing.JButton();
+        btnCambiar1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -116,6 +134,11 @@ public class Salarios extends javax.swing.JFrame {
                 "Emp no:", "Salario", "From_date", "To_date"
             }
         ));
+        TablaSalarios.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TablaSalariosMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(TablaSalarios);
         if (TablaSalarios.getColumnModel().getColumnCount() > 0) {
             TablaSalarios.getColumnModel().getColumn(0).setResizable(false);
@@ -160,7 +183,7 @@ public class Salarios extends javax.swing.JFrame {
             }
         });
 
-        btnCambiar.setText("Modificar");
+        btnCambiar.setText("Buscar");
         btnCambiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCambiarActionPerformed(evt);
@@ -181,6 +204,13 @@ public class Salarios extends javax.swing.JFrame {
             }
         });
 
+        btnCambiar1.setText("Modificar");
+        btnCambiar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCambiar1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -197,30 +227,31 @@ public class Salarios extends javax.swing.JFrame {
                         .addComponent(jLabel5)))
                 .addContainerGap(14, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addGap(211, 211, 211)
                         .addComponent(lblPrecio)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(spnSalario, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(spnA, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cobMes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(spnDia, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(69, 69, 69)
-                                .addComponent(spnA2, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(btnAgregar)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnCambiar)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnEliminar)))))
+                        .addComponent(spnA, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cobMes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(spnDia, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(69, 69, 69)
+                        .addComponent(spnA2, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(61, 61, 61)
+                        .addComponent(btnAgregar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnCambiar1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnCambiar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnEliminar)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -276,7 +307,8 @@ public class Salarios extends javax.swing.JFrame {
                             .addComponent(btnAgregar)
                             .addComponent(btnCambiar)
                             .addComponent(btnEliminar)
-                            .addComponent(btnLimpiar))
+                            .addComponent(btnLimpiar)
+                            .addComponent(btnCambiar1))
                         .addContainerGap(33, Short.MAX_VALUE))))
         );
 
@@ -302,7 +334,7 @@ public class Salarios extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtIdEmpleadoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIdEmpleadoKeyReleased
-        mostrarJuegosDisponibles(TablaEmpleados, "SELECT * FROM Vista_Juegos_Disponibles where idJuego like "+ "'" + txtIdEmpleado.getText()+ "%';");
+        mostrarJuegosDisponibles(TablaSalarios, "SELECT * FROM Vista_Juegos_Disponibles where idJuego like "+ "'" + txtIdEmpleado.getText()+ "%';");
     }//GEN-LAST:event_txtIdEmpleadoKeyReleased
 
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
@@ -315,30 +347,13 @@ public class Salarios extends javax.swing.JFrame {
 
     private void btnCambiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCambiarActionPerformed
         try {
-            if(txtNombreEmpleado.getText().isEmpty()){
-                JOptionPane.showMessageDialog(this, "No olvides ingresar el nombre del empleado", "Atencion!!!!", JOptionPane.INFORMATION_MESSAGE);
-            }else if(txtApellidoEmpleado.getText().isEmpty()){
-                JOptionPane.showMessageDialog(this, "No olvides ingresar el nombre del empleado", "Atencion!!!!", JOptionPane.INFORMATION_MESSAGE);
-            }else if(cobGenero.getSelectedItem().equals("Seleccionar genero...")){
-                JOptionPane.showMessageDialog(this, "No olvides selecionar un genero", "Atencion!!!!", JOptionPane.INFORMATION_MESSAGE);
+            if(spnSalario.getValue().equals(0)){
+                JOptionPane.showMessageDialog(this, "No olvides ingresar el salario", "Atencion!!!!", JOptionPane.INFORMATION_MESSAGE);
             }else if(cobMes.getSelectedItem().equals("Seleccionar mes") || spnA.getValue().equals(0) || spnDia.getValue().equals(0)){
-                JOptionPane.showMessageDialog(this, "No olvides ingresar la fecha de nacimiento completa", "Atencion!!!!", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(this, "No olvides ingresar la fecha de inicio", "Atencion!!!!", JOptionPane.INFORMATION_MESSAGE);
             }else if(cobMes2.getSelectedItem().equals("Seleccionar mes")|| spnA2.getValue().equals(0) || spnDia2.getValue().equals(0)){
-                JOptionPane.showMessageDialog(this, "No olvides ingresar la fecha de contratacion completa", "Atencion!!!!", JOptionPane.INFORMATION_MESSAGE);
-            }else if(txtIdEmpleado.getText().isEmpty()){
-                JOptionPane.showMessageDialog(this, "No olvides ingresar el id del juego", "Atencion!!!!", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(this, "No olvides ingresar la fecha de finalizacion", "Atencion!!!!", JOptionPane.INFORMATION_MESSAGE);
             }else{
-
-                mostrarJuegosDisponibles(TablaEmpleados, "SELECT * FROM Vista_Juegos_Disponibles;");
-                txtNombreEmpleado.setText("");
-                txtApellidoEmpleado.setText("");
-                cobGenero.setSelectedIndex(0);
-                cobMes.setSelectedIndex(0);
-                cobMes2.setSelectedIndex(0);
-                spnDia.setValue(0);
-                spnDia.setValue(0);
-                txtIdEmpleado.setText("");
-
                 JOptionPane.showMessageDialog(this, "Modificacion completada!!!");
             }
         } catch (Exception e) {
@@ -351,7 +366,7 @@ public class Salarios extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "No olvides ingresar el titulo del juego", "Atencion!!!!", JOptionPane.INFORMATION_MESSAGE);
             }else{
                 Procedimientos.eliminarJuego(txtIdEmpleado.getText());
-                mostrarJuegosDisponibles(TablaEmpleados, "SELECT * FROM Vista_Juegos_Disponibles;");
+                mostrarJuegosDisponibles(TablaSalarios, "SELECT * FROM Vista_Juegos_Disponibles;");
                 txtIdEmpleado.setText("");
 
                 JOptionPane.showMessageDialog(this, "El empleado se a dado de baja");
@@ -364,6 +379,83 @@ public class Salarios extends javax.swing.JFrame {
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
         metodoRestablecer();
     }//GEN-LAST:event_btnLimpiarActionPerformed
+
+    private void btnCambiar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCambiar1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCambiar1ActionPerformed
+
+    private void TablaSalariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablaSalariosMouseClicked
+        
+        metodoRestablecer();
+        
+        int col = TablaSalarios.getSelectedRow();
+        txtIdEmpleado.setText(TablaSalarios.getValueAt(col, 0).toString());
+        spnDia.setValue(Integer.parseInt((TablaSalarios.getValueAt(col, 2)+"").substring(8, 10)));
+        spnDia2.setValue(Integer.parseInt((TablaSalarios.getValueAt(col, 3)+"").substring(8, 10)));
+        spnA.setValue(Integer.parseInt((TablaSalarios.getValueAt(col, 2)+"").substring(0, 4)));
+        spnA2.setValue(Integer.parseInt((TablaSalarios.getValueAt(col, 3)+"").substring(0, 4)));
+        
+        int mes = 0;
+        
+        if((TablaSalarios.getValueAt(col, 2)+"").substring(5, 7).equals("01")) {
+            mes = 1;
+	}else if((TablaSalarios.getValueAt(col, 2)+"").substring(5, 7).equals("02")) {
+            mes = 2;
+	}else if((TablaSalarios.getValueAt(col, 2)+"").substring(5, 7).equals("03")) {
+            mes = 3;
+	}else if((TablaSalarios.getValueAt(col, 2)+"").substring(5, 7).equals("04")) {
+            mes = 4;
+	}else if((TablaSalarios.getValueAt(col, 2)+"").substring(5, 7).equals("05")) {
+            mes = 5;
+	}else if((TablaSalarios.getValueAt(col, 2)+"").substring(5, 7).equals("06")) {
+            mes = 6;
+	}else if((TablaSalarios.getValueAt(col, 2)+"").substring(5, 7).equals("07")) {
+            mes = 7;
+	}else if((TablaSalarios.getValueAt(col, 2)+"").substring(5, 7).equals("08")) {
+            mes = 8;
+	}else if((TablaSalarios.getValueAt(col, 2)+"").substring(5, 7).equals("09")) {
+            mes = 9;
+	}else if((TablaSalarios.getValueAt(col, 2)+"").substring(5, 7).equals("10")) {
+            mes = 10;
+	}else if((TablaSalarios.getValueAt(col, 2)+"").substring(5, 7).equals("11")) {
+            mes = 11;
+	}else if((TablaSalarios.getValueAt(col, 2)+"").substring(5, 7).equals("12")) {
+            mes = 12;
+	}
+        
+        cobMes.setSelectedIndex(mes);
+        
+        int mes2 = 0;
+        
+        if((TablaSalarios.getValueAt(col, 3)+"").substring(5, 7).equals("01")) {
+            mes2 = 1;
+	}else if((TablaSalarios.getValueAt(col, 3)+"").substring(5, 7).equals("02")) {
+            mes2 = 2;
+	}else if((TablaSalarios.getValueAt(col, 3)+"").substring(5, 7).equals("03")) {
+            mes2 = 3;
+	}else if((TablaSalarios.getValueAt(col, 3)+"").substring(5, 7).equals("04")) {
+            mes2 = 4;
+	}else if((TablaSalarios.getValueAt(col, 3)+"").substring(5, 7).equals("05")) {
+            mes2 = 5;
+	}else if((TablaSalarios.getValueAt(col, 3)+"").substring(5, 7).equals("06")) {
+            mes2 = 6;
+	}else if((TablaSalarios.getValueAt(col, 3)+"").substring(5, 7).equals("07")) {
+            mes2 = 7;
+	}else if((TablaSalarios.getValueAt(col, 3)+"").substring(5, 7).equals("08")) {
+            mes2 = 8;
+	}else if((TablaSalarios.getValueAt(col, 3)+"").substring(5, 7).equals("09")) {
+            mes2 = 9;
+	}else if((TablaSalarios.getValueAt(col, 3)+"").substring(5, 7).equals("10")) {
+            mes2 = 10;
+	}else if((TablaSalarios.getValueAt(col, 3)+"").substring(5, 7).equals("11")) {
+            mes2 = 11;
+	}else if((TablaSalarios.getValueAt(col, 3)+"").substring(5, 7).equals("12")) {
+            mes2 = 12;
+	}
+        
+        cobMes.setSelectedIndex(mes2);
+        
+    }//GEN-LAST:event_TablaSalariosMouseClicked
 
      public void mostrarJuegosDisponibles(JTable tabla,String com){
         DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
@@ -387,7 +479,17 @@ public class Salarios extends javax.swing.JFrame {
         } catch (Exception e) {
         }    
     }
-    
+    public void metodoRestablecer() {
+        
+        txtIdEmpleado.setText("");
+        cobMes.setSelectedIndex(0);
+	cobMes2.setSelectedIndex(0);
+        spnSalario.setValue(0);
+        spnDia.setValue(0);
+        spnDia2.setValue(0);
+        spnA.setValue(0);
+        spnA2.setValue(0);
+    }
     /**
      * @param args the command line arguments
      */
@@ -428,6 +530,7 @@ public class Salarios extends javax.swing.JFrame {
     private javax.swing.JTable TablaSalarios;
     private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnCambiar;
+    private javax.swing.JButton btnCambiar1;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnLimpiar;
     private javax.swing.JButton btnRegresar;
