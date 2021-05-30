@@ -18,9 +18,9 @@ public class Conexion {
     public static Connection getConnection(){
         
         status = false;
-        String url = "jdbc:sqlserver://DESKTOP-C3KQPHR:1433;databaseName=TiendaJuegos";
+        String url = "jdbc:postgresql://localhost:5432/Employees";
         try {
-        Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+        Class.forName("org.postgresql.Driver");
                     
         } catch (ClassNotFoundException e) {
             JOptionPane.showMessageDialog(null,"No se puede establecer conexion... revisa drivers" + e.getMessage(),
