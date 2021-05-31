@@ -27,7 +27,7 @@ public class ABCCEmployees extends javax.swing.JFrame {
     public ABCCEmployees() {
         initComponents();
         
-        mostrarJuegosDisponibles(TablaEmpleados, "SELECT * FROM Vista_Juegos_Disponibles;");
+        mostrarEmpleados(TablaEmpleados, "SELECT * FROM Vista_Juegos_Disponibles;");
         
         SpinnerNumberModel modeloSpinner = new SpinnerNumberModel();
         modeloSpinner.setMaximum(2200);
@@ -476,7 +476,7 @@ public class ABCCEmployees extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "No olvides ingresar el titulo del juego", "Atencion!!!!", JOptionPane.INFORMATION_MESSAGE);
             }else{
                 Procedimientos.eliminarJuego(txtIdEmpleado.getText());
-                mostrarJuegosDisponibles(TablaEmpleados, "SELECT * FROM Vista_Juegos_Disponibles;");
+                mostrarEmpleados(TablaEmpleados, "Select * from vista_empleados");
                 txtIdEmpleado.setText("");
 
                 JOptionPane.showMessageDialog(this, "El empleado se a dado de baja");
@@ -506,7 +506,7 @@ public class ABCCEmployees extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "No olvides ingresar el id del juego", "Atencion!!!!", JOptionPane.INFORMATION_MESSAGE);
             }else{
                 
-                mostrarJuegosDisponibles(TablaEmpleados, "SELECT * FROM Vista_Juegos_Disponibles;");
+                mostrarEmpleados(TablaEmpleados, "Select * from vista_empleados");
                 txtNombreEmpleado.setText("");
                 txtApellidoEmpleado.setText("");
                 cobGenero.setSelectedIndex(0);
@@ -527,11 +527,11 @@ public class ABCCEmployees extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNombreEmpleadoActionPerformed
 
     private void txtIdEmpleadoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIdEmpleadoKeyReleased
-        mostrarJuegosDisponibles(TablaEmpleados, "SELECT * FROM Vista_Juegos_Disponibles where idJuego like "+ "'" + txtIdEmpleado.getText()+ "%';");
+        mostrarEmpleados(TablaEmpleados, "Select * from vista_empleados where emp_no = " + txtIdEmpleado.getText()+ ";");
     }//GEN-LAST:event_txtIdEmpleadoKeyReleased
 
     private void txtNombreEmpleadoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreEmpleadoKeyReleased
-        mostrarJuegosDisponibles(TablaEmpleados, "SELECT * FROM Vista_Juegos_Disponibles where titulo like "+ "'" + txtNombreEmpleado.getText()+ "%';");
+        mostrarEmpleados(TablaEmpleados, "Select * from vista_empleados where first_name like "+ "'" + txtNombreEmpleado.getText()+ "%';");
     }//GEN-LAST:event_txtNombreEmpleadoKeyReleased
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
@@ -556,7 +556,7 @@ public class ABCCEmployees extends javax.swing.JFrame {
 
     static ResultSet res; 
     
-    public void mostrarJuegosDisponibles(JTable tabla,String com){
+    public void mostrarEmpleados(JTable tabla,String com){
         DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
         modelo.setRowCount(0);
         res=Conexiones.Conexion.Consulta(com);
@@ -564,13 +564,12 @@ public class ABCCEmployees extends javax.swing.JFrame {
             
             while(res.next()){
                 Vector v = new Vector();
-                v.add(res.getString(1));
+                v.add(res.getInt(1));
                 v.add(res.getString(2));
                 v.add(res.getString(3));
                 v.add(res.getString(4));
                 v.add(res.getString(5));
-                v.add(res.getInt(6));
-                v.add(res.getDouble(7));
+                v.add(res.getString(6));
                 modelo.addRow(v);
                 tabla.setModel(modelo);
             }

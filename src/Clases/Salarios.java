@@ -28,7 +28,7 @@ public class Salarios extends javax.swing.JFrame {
     
     public Salarios() {
         initComponents();
-        mostrarJuegosDisponibles(TablaSalarios, "SELECT * FROM Vista_Juegos_Disponibles;");
+        mostrarSalarios(TablaSalarios, "Select * from vista_empleados");
         
         SpinnerNumberModel modeloSpinner = new SpinnerNumberModel();
         modeloSpinner.setMaximum(2200);
@@ -334,7 +334,7 @@ public class Salarios extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtIdEmpleadoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIdEmpleadoKeyReleased
-        mostrarJuegosDisponibles(TablaSalarios, "SELECT * FROM Vista_Juegos_Disponibles where idJuego like "+ "'" + txtIdEmpleado.getText()+ "%';");
+        mostrarSalarios(TablaSalarios, "Select * from vista_salarios where emp_no =" + txtIdEmpleado.getText() + ";");
     }//GEN-LAST:event_txtIdEmpleadoKeyReleased
 
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
@@ -366,7 +366,7 @@ public class Salarios extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "No olvides ingresar el titulo del juego", "Atencion!!!!", JOptionPane.INFORMATION_MESSAGE);
             }else{
                 Procedimientos.eliminarJuego(txtIdEmpleado.getText());
-                mostrarJuegosDisponibles(TablaSalarios, "SELECT * FROM Vista_Juegos_Disponibles;");
+                mostrarSalarios(TablaSalarios, "Select * from vista_salarios");
                 txtIdEmpleado.setText("");
 
                 JOptionPane.showMessageDialog(this, "El empleado se a dado de baja");
@@ -457,7 +457,7 @@ public class Salarios extends javax.swing.JFrame {
         
     }//GEN-LAST:event_TablaSalariosMouseClicked
 
-     public void mostrarJuegosDisponibles(JTable tabla,String com){
+     public void mostrarSalarios(JTable tabla,String com){
         DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
         modelo.setRowCount(0);
         res=Conexiones.Conexion.Consulta(com);
@@ -465,13 +465,10 @@ public class Salarios extends javax.swing.JFrame {
             
             while(res.next()){
                 Vector v = new Vector();
-                v.add(res.getString(1));
-                v.add(res.getString(2));
+                v.add(res.getInt(1));
+                v.add(res.getInt(2));
                 v.add(res.getString(3));
                 v.add(res.getString(4));
-                v.add(res.getString(5));
-                v.add(res.getInt(6));
-                v.add(res.getDouble(7));
                 modelo.addRow(v);
                 tabla.setModel(modelo);
             }

@@ -231,28 +231,6 @@ public class Empleados extends javax.swing.JFrame {
     
     static ResultSet res; 
     
-    public void mostrarJuegosDisponibles(JTable tabla,String com){
-        DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
-        modelo.setRowCount(0);
-        res=Conexiones.Conexion.Consulta(com);
-        try {
-            
-            while(res.next()){
-                Vector v = new Vector();
-                v.add(res.getString(1));
-                v.add(res.getString(2));
-                v.add(res.getString(3));
-                v.add(res.getString(4));
-                v.add(res.getString(5));
-                v.add(res.getInt(6));
-                v.add(res.getDouble(7));
-                modelo.addRow(v);
-                tabla.setModel(modelo);
-            }
-                
-        } catch (Exception e) {
-        }    
-    }
     /**
      * @param args the command line arguments
      */
