@@ -27,7 +27,7 @@ public class ABCCEmployees extends javax.swing.JFrame {
     public ABCCEmployees() {
         initComponents();
         
-        mostrarEmpleados(TablaEmpleados, "SELECT * FROM Vista_Juegos_Disponibles;");
+        mostrarEmpleados(TablaEmpleados, "Select * from vista_empleados");
         
         SpinnerNumberModel modeloSpinner = new SpinnerNumberModel();
         modeloSpinner.setMaximum(2200);

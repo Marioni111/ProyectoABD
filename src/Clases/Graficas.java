@@ -27,13 +27,13 @@ public class Graficas extends javax.swing.JFrame {
     public Graficas() {
         initComponents();
         
-        mostrarVentas(tablaGraficas, "SELECT * FROM Vista_Juegos_Vendidos;");
+        mostrarSalarios(tablaGraficas, "select * from vista_empleados_salario");
         
         DefaultPieDataset dataSet = new DefaultPieDataset();
         
-        dataSet.setValue("Nintendo Switch", new Double(obtenerInformacion("SELECT SUM(cantidad) FROM Vista_Juegos_Vendidos where plataforma = 'Nintendo switch';")));
-        dataSet.setValue("PlayStation 4", new Double(obtenerInformacion("SELECT SUM(cantidad) FROM Vista_Juegos_Vendidos where plataforma = 'Playstation 4';")));
-        dataSet.setValue("Xbox one", new Double(obtenerInformacion("SELECT SUM(cantidad) FROM Vista_Juegos_Vendidos where plataforma = 'Xbox one';")));
+        //dataSet.setValue("Nintendo Switch", new Double(obtenerInformacion("SELECT SUM(cantidad) FROM Vista_Juegos_Vendidos where plataforma = 'Nintendo switch';")));
+        //dataSet.setValue("PlayStation 4", new Double(obtenerInformacion("SELECT SUM(cantidad) FROM Vista_Juegos_Vendidos where plataforma = 'Playstation 4';")));
+        //dataSet.setValue("Xbox one", new Double(obtenerInformacion("SELECT SUM(cantidad) FROM Vista_Juegos_Vendidos where plataforma = 'Xbox one';")));
         
         JFreeChart ch = ChartFactory.createPieChart3D("Guerra de consolas", dataSet, true, true, false);
         ChartPanel cp = new ChartPanel(ch);
@@ -54,7 +54,7 @@ public class Graficas extends javax.swing.JFrame {
      
     static ResultSet res; 
     
-    public void mostrarVentas(JTable tabla,String com){
+    public void mostrarSalarios(JTable tabla,String com){
         DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
         modelo.setRowCount(0);
         res=Conexiones.Conexion.Consulta(com);
@@ -62,9 +62,10 @@ public class Graficas extends javax.swing.JFrame {
             
             while(res.next()){
                 Vector v = new Vector();
-                v.add(res.getString(1));
+                v.add(res.getInt(1));
                 v.add(res.getString(2));
-                v.add(res.getInt(3));
+                v.add(res.getString(3));
+                v.add(res.getInt(4));
                 modelo.addRow(v);
                 tabla.setModel(modelo);
             }
@@ -94,18 +95,18 @@ public class Graficas extends javax.swing.JFrame {
 
         tablaGraficas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Titulo", "Plataforma", "Plataforma"
+                "Emp_no", "Nombre", "Apellido", "Salario"
             }
         ));
         jScrollPane1.setViewportView(tablaGraficas);
 
-        lblListaVentas.setText("Lista de ventas");
+        lblListaVentas.setText("Lista de Salarios");
 
         btnRegresar3.setText("Regresar");
         btnRegresar3.addActionListener(new java.awt.event.ActionListener() {
