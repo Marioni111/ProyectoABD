@@ -172,9 +172,9 @@ public class Salarios extends javax.swing.JFrame {
         lblCantidad5.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         lblCantidad5.setText("Hasta la fecha:");
 
-        cobMes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar mes...", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" }));
+        cobMes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar mes...", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
 
-        cobMes2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar mes...", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" }));
+        cobMes2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar mes...", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
 
         btnAgregar.setText("Agregar");
         btnAgregar.addActionListener(new java.awt.event.ActionListener() {

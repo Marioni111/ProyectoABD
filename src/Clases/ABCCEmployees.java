@@ -7,6 +7,7 @@ package Clases;
 
 import static Clases.Empleados.res;
 import Conexiones.Procedimientos;
+import com.sun.glass.events.KeyEvent;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Vector;
@@ -126,14 +127,27 @@ public class ABCCEmployees extends javax.swing.JFrame {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtNombreEmpleadoKeyReleased(evt);
             }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNombreEmpleadoKeyTyped(evt);
+            }
         });
 
-        cobMes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar mes...", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" }));
+        cobMes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar mes...", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
+        cobMes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cobMesActionPerformed(evt);
+            }
+        });
 
         cobGenero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar genero...", "M", "F" }));
         cobGenero.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cobGeneroActionPerformed(evt);
+            }
+        });
+        cobGenero.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                cobGeneroKeyReleased(evt);
             }
         });
 
@@ -161,6 +175,9 @@ public class ABCCEmployees extends javax.swing.JFrame {
         txtIdEmpleado.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtIdEmpleadoKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtIdEmpleadoKeyTyped(evt);
             }
         });
 
@@ -191,9 +208,29 @@ public class ABCCEmployees extends javax.swing.JFrame {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtApellidoEmpleadoKeyReleased(evt);
             }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtApellidoEmpleadoKeyTyped(evt);
+            }
         });
 
-        cobMes2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar mes...", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" }));
+        spnA.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                spnAMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                spnAMousePressed(evt);
+            }
+        });
+        spnA.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                spnAKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                spnAKeyTyped(evt);
+            }
+        });
+
+        cobMes2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar mes...", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
 
         javax.swing.GroupLayout panelABCCEmployeesLayout = new javax.swing.GroupLayout(panelABCCEmployees);
         panelABCCEmployees.setLayout(panelABCCEmployeesLayout);
@@ -547,7 +584,7 @@ public class ABCCEmployees extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
     private void cobGeneroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cobGeneroActionPerformed
-        // TODO add your handling code here:
+        mostrarEmpleados(TablaEmpleados, "Select * from vista_empleados where gender = "+ "'" + cobGenero.getSelectedItem()+ "';");
     }//GEN-LAST:event_cobGeneroActionPerformed
 
     private void txtApellidoEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtApellidoEmpleadoActionPerformed
@@ -555,8 +592,82 @@ public class ABCCEmployees extends javax.swing.JFrame {
     }//GEN-LAST:event_txtApellidoEmpleadoActionPerformed
 
     private void txtApellidoEmpleadoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtApellidoEmpleadoKeyReleased
-        // TODO add your handling code here:
+        mostrarEmpleados(TablaEmpleados, "Select * from vista_empleados where last_name like "+ "'" + txtApellidoEmpleado.getText()+ "%';");
     }//GEN-LAST:event_txtApellidoEmpleadoKeyReleased
+
+    private void cobGeneroKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cobGeneroKeyReleased
+        
+    }//GEN-LAST:event_cobGeneroKeyReleased
+
+    private void cobMesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cobMesActionPerformed
+        
+    }//GEN-LAST:event_cobMesActionPerformed
+
+    private void spnAKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_spnAKeyTyped
+ 
+    }//GEN-LAST:event_spnAKeyTyped
+
+    private void txtIdEmpleadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIdEmpleadoKeyTyped
+        char validar = evt.getKeyChar();
+        
+        if(Character.isLetter(validar)){
+            getToolkit().beep();
+            evt.consume();
+            
+            JOptionPane.showMessageDialog(rootPane, "Ingresa solo numeros");
+        }else if(!(Character.isLetterOrDigit(validar)) &&  !(Character.isWhitespace(validar)) &&  !(evt.getKeyChar()==KeyEvent.VK_BACKSPACE)){
+            getToolkit().beep();
+            evt.consume();
+            JOptionPane.showMessageDialog(rootPane, "Ingresa solo letras");
+        }else if(Character.isWhitespace(validar)){
+            getToolkit().beep();
+            evt.consume();
+            JOptionPane.showMessageDialog(rootPane, "En este apartado no puedes ingresar espacios en blanco");
+        }
+    }//GEN-LAST:event_txtIdEmpleadoKeyTyped
+
+    private void txtNombreEmpleadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreEmpleadoKeyTyped
+        
+        char validar = evt.getKeyChar();
+        
+        if(Character.isDigit(validar) &&  !(Character.isWhitespace(validar)) &&  !(evt.getKeyChar()==KeyEvent.VK_BACKSPACE)){
+            getToolkit().beep();
+            evt.consume();
+            
+            JOptionPane.showMessageDialog(rootPane, "Ingresa solo letras");
+        }else if(!(Character.isLetterOrDigit(validar)) &&  !(Character.isWhitespace(validar)) &&  !(evt.getKeyChar()==KeyEvent.VK_BACKSPACE)){
+            getToolkit().beep();
+            evt.consume();
+            JOptionPane.showMessageDialog(rootPane, "Ingresa solo letras");
+        }
+    }//GEN-LAST:event_txtNombreEmpleadoKeyTyped
+
+    private void txtApellidoEmpleadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtApellidoEmpleadoKeyTyped
+        char validar = evt.getKeyChar();
+        
+        if(Character.isDigit(validar) &&  !(Character.isWhitespace(validar)) &&  !(evt.getKeyChar()==KeyEvent.VK_BACKSPACE)){
+            getToolkit().beep();
+            evt.consume();
+            
+            JOptionPane.showMessageDialog(rootPane, "Ingresa solo letras");
+        }else if(!(Character.isLetterOrDigit(validar)) &&  !(Character.isWhitespace(validar)) &&  !(evt.getKeyChar()==KeyEvent.VK_BACKSPACE)){
+            getToolkit().beep();
+            evt.consume();
+            JOptionPane.showMessageDialog(rootPane, "Ingresa solo letras");
+        }
+    }//GEN-LAST:event_txtApellidoEmpleadoKeyTyped
+
+    private void spnAKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_spnAKeyPressed
+        System.out.println("hola3");
+    }//GEN-LAST:event_spnAKeyPressed
+
+    private void spnAMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_spnAMouseClicked
+        System.out.println("hola2");
+    }//GEN-LAST:event_spnAMouseClicked
+
+    private void spnAMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_spnAMousePressed
+        System.out.println("hola");
+    }//GEN-LAST:event_spnAMousePressed
 
     static ResultSet res; 
     
