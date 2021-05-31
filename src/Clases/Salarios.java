@@ -28,7 +28,7 @@ public class Salarios extends javax.swing.JFrame {
     
     public Salarios() {
         initComponents();
-        mostrarSalarios(TablaSalarios, "Select * from vista_empleados");
+        mostrarSalarios(TablaSalarios, "Select * from vista_salarios");
         
         SpinnerNumberModel modeloSpinner = new SpinnerNumberModel();
         modeloSpinner.setMaximum(2200);
