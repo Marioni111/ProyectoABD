@@ -241,7 +241,7 @@ public class ABCCEmployees extends javax.swing.JFrame {
                 .addGap(33, 33, 33)
                 .addComponent(jLabel4)
                 .addGap(18, 18, 18)
-                .addComponent(txtIdEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtIdEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(panelABCCEmployeesLayout.createSequentialGroup()
                 .addContainerGap()

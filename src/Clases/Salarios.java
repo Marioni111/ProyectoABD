@@ -221,7 +221,7 @@ public class Salarios extends javax.swing.JFrame {
                         .addGap(45, 45, 45)
                         .addComponent(jLabel4)
                         .addGap(18, 18, 18)
-                        .addComponent(txtIdEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtIdEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel5)))
@@ -378,6 +378,7 @@ public class Salarios extends javax.swing.JFrame {
 
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
         metodoRestablecer();
+        mostrarSalarios(TablaSalarios, "Select * from vista_salarios");
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
     private void btnCambiar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCambiar1ActionPerformed
@@ -454,7 +455,7 @@ public class Salarios extends javax.swing.JFrame {
             mes2 = 12;
 	}
         
-        cobMes.setSelectedIndex(mes2);
+        cobMes2.setSelectedIndex(mes2);
         
     }//GEN-LAST:event_TablaSalariosMouseClicked
 
