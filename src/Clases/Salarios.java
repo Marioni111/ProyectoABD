@@ -390,6 +390,7 @@ public class Salarios extends javax.swing.JFrame {
         
         int col = TablaSalarios.getSelectedRow();
         txtIdEmpleado.setText(TablaSalarios.getValueAt(col, 0).toString());
+        spnSalario.setValue(Integer.parseInt(TablaSalarios.getValueAt(col, 1)+""));
         spnDia.setValue(Integer.parseInt((TablaSalarios.getValueAt(col, 2)+"").substring(8, 10)));
         spnDia2.setValue(Integer.parseInt((TablaSalarios.getValueAt(col, 3)+"").substring(8, 10)));
         spnA.setValue(Integer.parseInt((TablaSalarios.getValueAt(col, 2)+"").substring(0, 4)));
