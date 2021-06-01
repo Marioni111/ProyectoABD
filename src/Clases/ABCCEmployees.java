@@ -528,24 +528,17 @@ public class ABCCEmployees extends javax.swing.JFrame {
             if(txtIdEmpleado.getText().isEmpty()){
                 JOptionPane.showMessageDialog(this, "No olvides ingresar el titulo del juego", "Atencion!!!!", JOptionPane.INFORMATION_MESSAGE);
             }else{
-                eliminarRegistro(txtIdEmpleado.getText());
+		
+		String sql="select eliminarempleado("+txtIdEmpleado.getText()+")";
+		Conexiones.Conexion.ABCC(sql);
                 
+                metodoRestablecer();
                 mostrarEmpleados(TablaEmpleados, "Select * from vista_empleados");
-                txtIdEmpleado.setText("");
 
                 JOptionPane.showMessageDialog(this, "El empleado se a dado de baja");
             }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
-    public boolean eliminarRegistro(String nc) {
-		
-		boolean resultado = false;
-		
-		String sql="select eliminarempleado("+nc+")";
-		resultado = Conexiones.Conexion.ABCC(sql);
-		
-		return resultado;
-	}
     
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
         this.setVisible(false);
@@ -603,14 +596,23 @@ public class ABCCEmployees extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "No olvides selecionar un genero", "Atencion!!!!", JOptionPane.INFORMATION_MESSAGE);
             }else{
                 
-                System.out.println(spnA.getValue().toString()+"-"+cobMes.getSelectedItem().toString()+"-"+spnDia.getValue().toString());
-                System.out.println(txtNombreEmpleado.getText());
-                System.out.println(txtApellidoEmpleado.getText());
-                System.out.println(cobGenero.getSelectedItem().toString());
-                System.out.println(spnA2.getValue().toString()+"-"+cobMes2.getSelectedItem().toString()+"-"+spnDia2.getValue().toString());
+                System.out.println();
+                System.out.println();
+                System.out.println();
+                System.out.println();
+                System.out.println();
                 
-                mostrarEmpleados(TablaEmpleados, "Select * from vista_empleados");
+                String sql="select InsertarEmpleado("+10000+ ", '" +
+                        spnA.getValue().toString()+"-"+cobMes.getSelectedItem().toString()+"-"+spnDia.getValue().toString()+ "', '" +
+                        txtNombreEmpleado.getText() + "', '" +
+                        txtApellidoEmpleado.getText() + "', '" +
+                        cobGenero.getSelectedItem().toString() + "', '" +
+                        spnA2.getValue().toString()+"-"+cobMes2.getSelectedItem().toString()+"-"+spnDia2.getValue().toString() +
+                        "')";
+		Conexiones.Conexion.ABCC(sql);
+                
                 metodoRestablecer();
+                mostrarEmpleados(TablaEmpleados, "Select * from vista_empleados");
 
                 JOptionPane.showMessageDialog(this, "Empleado agregado!!!");
             }
