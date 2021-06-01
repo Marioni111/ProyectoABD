@@ -28,6 +28,8 @@ public class ABCCEmployees extends javax.swing.JFrame {
         initComponents();
         
         mostrarEmpleados(TablaEmpleados, "Select * from vista_empleados");
+        String sql="Select max(cantidad_emp) from vista_empleados";
+        txtEmpleadoTotales.setText(Conexiones.Conexion.Consulta2(sql) + "");
         
         SpinnerNumberModel modeloSpinner = new SpinnerNumberModel();
         modeloSpinner.setMaximum(2200);
@@ -95,6 +97,11 @@ public class ABCCEmployees extends javax.swing.JFrame {
         spnDia2 = new javax.swing.JSpinner();
         btnBuscar = new javax.swing.JButton();
         lblCantidad6 = new javax.swing.JLabel();
+        txtEmpleadoTotales = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         TablaEmpleados = new javax.swing.JTable();
         jPanel5 = new javax.swing.JPanel();
@@ -243,6 +250,23 @@ public class ABCCEmployees extends javax.swing.JFrame {
         lblCantidad6.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         lblCantidad6.setText("Buscar con fechas:");
 
+        txtEmpleadoTotales.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtEmpleadoTotalesKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtEmpleadoTotalesKeyTyped(evt);
+            }
+        });
+
+        jLabel6.setText("Cantidad de empleados");
+
+        jLabel7.setText("AAAA");
+
+        jLabel8.setText("MM");
+
+        jLabel9.setText("DD");
+
         javax.swing.GroupLayout panelABCCEmployeesLayout = new javax.swing.GroupLayout(panelABCCEmployees);
         panelABCCEmployees.setLayout(panelABCCEmployeesLayout);
         panelABCCEmployeesLayout.setHorizontalGroup(
@@ -296,26 +320,38 @@ public class ABCCEmployees extends javax.swing.JFrame {
                 .addComponent(jLabel4)
                 .addGap(18, 18, 18)
                 .addComponent(txtIdEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtEmpleadoTotales, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(68, 68, 68))
             .addGroup(panelABCCEmployeesLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel5)
+                .addGroup(panelABCCEmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(panelABCCEmployeesLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(panelABCCEmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelABCCEmployeesLayout.createSequentialGroup()
+                                .addComponent(btnRegresar)
+                                .addGap(18, 18, 18))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelABCCEmployeesLayout.createSequentialGroup()
+                                .addComponent(btnAgregar)
+                                .addGap(34, 34, 34)
+                                .addComponent(btnCambiar)
+                                .addGap(36, 36, 36)
+                                .addComponent(btnEliminar)
+                                .addGap(39, 39, 39)
+                                .addComponent(btnLimpiar)
+                                .addGap(105, 105, 105))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelABCCEmployeesLayout.createSequentialGroup()
+                                .addComponent(jLabel7)
+                                .addGap(60, 60, 60)
+                                .addComponent(jLabel8)
+                                .addGap(62, 62, 62)
+                                .addComponent(jLabel9))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelABCCEmployeesLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel5)))
                 .addGap(0, 29, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelABCCEmployeesLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(panelABCCEmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelABCCEmployeesLayout.createSequentialGroup()
-                        .addComponent(btnRegresar)
-                        .addGap(18, 18, 18))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelABCCEmployeesLayout.createSequentialGroup()
-                        .addComponent(btnAgregar)
-                        .addGap(34, 34, 34)
-                        .addComponent(btnCambiar)
-                        .addGap(36, 36, 36)
-                        .addComponent(btnEliminar)
-                        .addGap(39, 39, 39)
-                        .addComponent(btnLimpiar)
-                        .addGap(105, 105, 105))))
         );
         panelABCCEmployeesLayout.setVerticalGroup(
             panelABCCEmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -323,11 +359,13 @@ public class ABCCEmployees extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(panelABCCEmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtIdEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
+                    .addComponent(jLabel4)
+                    .addComponent(txtEmpleadoTotales, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panelABCCEmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addComponent(jLabel5)
+                .addGroup(panelABCCEmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelABCCEmployeesLayout.createSequentialGroup()
-                        .addComponent(jLabel5)
                         .addGap(23, 23, 23)
                         .addGroup(panelABCCEmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtNombreEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -335,8 +373,19 @@ public class ABCCEmployees extends javax.swing.JFrame {
                         .addGap(21, 21, 21)
                         .addGroup(panelABCCEmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(lblEstudio5)
-                            .addComponent(txtApellidoEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(panelABCCEmployeesLayout.createSequentialGroup()
+                            .addComponent(txtApellidoEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(panelABCCEmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblGenero5)
+                            .addComponent(cobGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelABCCEmployeesLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(panelABCCEmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel9))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(panelABCCEmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblPlataforma5)
                             .addComponent(cobMes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -347,14 +396,12 @@ public class ABCCEmployees extends javax.swing.JFrame {
                             .addComponent(lblCantidad5)
                             .addComponent(cobMes2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(spnA2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(spnDia2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(18, 18, 18)
-                .addGroup(panelABCCEmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblGenero5)
-                    .addComponent(cobGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBuscar)
-                    .addComponent(lblCantidad6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                            .addComponent(spnDia2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(panelABCCEmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnBuscar)
+                            .addComponent(lblCantidad6))
+                        .addGap(18, 18, 18)))
                 .addGroup(panelABCCEmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAgregar)
                     .addComponent(btnCambiar)
@@ -411,7 +458,7 @@ public class ABCCEmployees extends javax.swing.JFrame {
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblVender2, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+                .addComponent(lblVender2, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -718,6 +765,14 @@ public class ABCCEmployees extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnBuscarActionPerformed
 
+    private void txtEmpleadoTotalesKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEmpleadoTotalesKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEmpleadoTotalesKeyReleased
+
+    private void txtEmpleadoTotalesKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEmpleadoTotalesKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEmpleadoTotalesKeyTyped
+
     static ResultSet res; 
     
     public void mostrarEmpleados(JTable tabla,String com){
@@ -805,6 +860,10 @@ public class ABCCEmployees extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cobMes2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblCantidad5;
@@ -820,6 +879,7 @@ public class ABCCEmployees extends javax.swing.JFrame {
     private javax.swing.JSpinner spnDia;
     private javax.swing.JSpinner spnDia2;
     private javax.swing.JTextField txtApellidoEmpleado;
+    private javax.swing.JTextField txtEmpleadoTotales;
     private javax.swing.JTextField txtIdEmpleado;
     private javax.swing.JTextField txtNombreEmpleado;
     // End of variables declaration//GEN-END:variables

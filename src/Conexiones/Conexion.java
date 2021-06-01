@@ -16,6 +16,7 @@ public class Conexion {
     public static String password;
     public static boolean status = false;
     private static PreparedStatement pstm;
+    private static ResultSet rs;
     
     public static Connection getConnection(){
         
@@ -73,5 +74,17 @@ public class Conexion {
         return null;
     }
 
+    public static ResultSet Consulta2(String consulta){
+                  try {
+			
+			pstm = contacto.prepareStatement(consulta);
+			rs = pstm.executeQuery(consulta);		
+			
+		} catch (SQLException e) {
+			System.out.println("No se pudo ejecutar instruccion");
+			e.printStackTrace();
+		}
+		return rs;
+    }
     
 }
