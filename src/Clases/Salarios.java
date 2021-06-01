@@ -7,6 +7,7 @@ package Clases;
 
 import static Clases.Empleados.res;
 import Conexiones.Procedimientos;
+import com.sun.glass.events.KeyEvent;
 import java.sql.SQLException;
 import java.util.Vector;
 import javax.swing.JOptionPane;
@@ -94,7 +95,7 @@ public class Salarios extends javax.swing.JFrame {
         btnCambiar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
         btnLimpiar = new javax.swing.JButton();
-        btnCambiar1 = new javax.swing.JButton();
+        btnBuscar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -157,8 +158,14 @@ public class Salarios extends javax.swing.JFrame {
         });
 
         txtIdEmpleado.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtIdEmpleadoKeyPressed(evt);
+            }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtIdEmpleadoKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtIdEmpleadoKeyTyped(evt);
             }
         });
 
@@ -183,7 +190,7 @@ public class Salarios extends javax.swing.JFrame {
             }
         });
 
-        btnCambiar.setText("Buscar");
+        btnCambiar.setText("Modificar");
         btnCambiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCambiarActionPerformed(evt);
@@ -204,10 +211,10 @@ public class Salarios extends javax.swing.JFrame {
             }
         });
 
-        btnCambiar1.setText("Modificar");
-        btnCambiar1.addActionListener(new java.awt.event.ActionListener() {
+        btnBuscar.setText("Buscar");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCambiar1ActionPerformed(evt);
+                btnBuscarActionPerformed(evt);
             }
         });
 
@@ -246,10 +253,10 @@ public class Salarios extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(61, 61, 61)
                         .addComponent(btnAgregar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnCambiar1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(10, 10, 10)
                         .addComponent(btnCambiar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnBuscar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnEliminar)))
                 .addGap(18, 18, 18)
@@ -308,7 +315,7 @@ public class Salarios extends javax.swing.JFrame {
                             .addComponent(btnCambiar)
                             .addComponent(btnEliminar)
                             .addComponent(btnLimpiar)
-                            .addComponent(btnCambiar1))
+                            .addComponent(btnBuscar))
                         .addContainerGap(33, Short.MAX_VALUE))))
         );
 
@@ -334,7 +341,14 @@ public class Salarios extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtIdEmpleadoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIdEmpleadoKeyReleased
-        mostrarSalarios(TablaSalarios, "Select * from vista_salarios where emp_no =" + txtIdEmpleado.getText() + ";");
+        
+        if(txtIdEmpleado.getText().isEmpty() && evt.getKeyCode()==KeyEvent.VK_BACKSPACE){
+            
+            evt.consume();
+        }else{
+           mostrarSalarios(TablaSalarios, "Select * from vista_salarios where emp_no =" + txtIdEmpleado.getText() + ";"); 
+        }
+        
     }//GEN-LAST:event_txtIdEmpleadoKeyReleased
 
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
@@ -381,9 +395,11 @@ public class Salarios extends javax.swing.JFrame {
         mostrarSalarios(TablaSalarios, "Select * from vista_salarios");
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
-    private void btnCambiar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCambiar1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnCambiar1ActionPerformed
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        
+        mostrarSalarios(TablaSalarios, "Select * from vista_salarios where emp_no ");
+        
+    }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void TablaSalariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablaSalariosMouseClicked
         
@@ -459,6 +475,29 @@ public class Salarios extends javax.swing.JFrame {
         
     }//GEN-LAST:event_TablaSalariosMouseClicked
 
+    private void txtIdEmpleadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIdEmpleadoKeyTyped
+        char validar = evt.getKeyChar();
+        
+        if(Character.isLetter(validar)){
+            getToolkit().beep();
+            evt.consume();
+            
+            JOptionPane.showMessageDialog(rootPane, "Ingresa solo numeros");
+        }else if(!(Character.isLetterOrDigit(validar)) &&  !(Character.isWhitespace(validar)) &&  !(evt.getKeyChar()==KeyEvent.VK_BACKSPACE)){
+            getToolkit().beep();
+            evt.consume();
+            JOptionPane.showMessageDialog(rootPane, "Ingresa solo letras");
+        }else if(Character.isWhitespace(validar)){
+            getToolkit().beep();
+            evt.consume();
+            JOptionPane.showMessageDialog(rootPane, "En este apartado no puedes ingresar espacios en blanco");
+        }
+    }//GEN-LAST:event_txtIdEmpleadoKeyTyped
+
+    private void txtIdEmpleadoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIdEmpleadoKeyPressed
+
+    }//GEN-LAST:event_txtIdEmpleadoKeyPressed
+
      public void mostrarSalarios(JTable tabla,String com){
         DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
         modelo.setRowCount(0);
@@ -528,8 +567,8 @@ public class Salarios extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable TablaSalarios;
     private javax.swing.JButton btnAgregar;
+    private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnCambiar;
-    private javax.swing.JButton btnCambiar1;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnLimpiar;
     private javax.swing.JButton btnRegresar;
