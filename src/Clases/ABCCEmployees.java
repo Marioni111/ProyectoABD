@@ -546,22 +546,28 @@ public class ABCCEmployees extends javax.swing.JFrame {
 
     private void btnCambiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCambiarActionPerformed
         try {
+     
             if(txtNombreEmpleado.getText().isEmpty()){
                 JOptionPane.showMessageDialog(this, "No olvides ingresar el nombre del empleado", "Atencion!!!!", JOptionPane.INFORMATION_MESSAGE);
             }else if(txtApellidoEmpleado.getText().isEmpty()){
-                JOptionPane.showMessageDialog(this, "No olvides ingresar el nombre del empleado", "Atencion!!!!", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(this, "No olvides ingresar el apellido del empleado", "Atencion!!!!", JOptionPane.INFORMATION_MESSAGE);
             }else if(cobGenero.getSelectedItem().equals("Seleccionar genero...")){
                 JOptionPane.showMessageDialog(this, "No olvides selecionar un genero", "Atencion!!!!", JOptionPane.INFORMATION_MESSAGE);
-            }else if(cobMes.getSelectedItem().equals("Seleccionar mes") || spnA.getValue().equals(0) || spnDia.getValue().equals(0)){
-                JOptionPane.showMessageDialog(this, "No olvides ingresar la fecha de nacimiento completa", "Atencion!!!!", JOptionPane.INFORMATION_MESSAGE);
-            }else if(cobMes2.getSelectedItem().equals("Seleccionar mes")|| spnA2.getValue().equals(0) || spnDia2.getValue().equals(0)){
-                JOptionPane.showMessageDialog(this, "No olvides ingresar la fecha de contratacion completa", "Atencion!!!!", JOptionPane.INFORMATION_MESSAGE);
             }else if(txtIdEmpleado.getText().isEmpty()){
                 JOptionPane.showMessageDialog(this, "No olvides ingresar el id del juego", "Atencion!!!!", JOptionPane.INFORMATION_MESSAGE);
             }else{
                 
-                mostrarEmpleados(TablaEmpleados, "Select * from vista_empleados");
+                String sql="select actualizarEmpleado("+Integer.parseInt(txtIdEmpleado.getText()+"")+ ", '" +
+                        spnA.getValue().toString()+"-"+cobMes.getSelectedItem().toString()+"-"+spnDia.getValue().toString()+ "', '" +
+                        txtNombreEmpleado.getText() + "', '" +
+                        txtApellidoEmpleado.getText() + "', '" +
+                        cobGenero.getSelectedItem().toString() + "', '" +
+                        spnA2.getValue().toString()+"-"+cobMes2.getSelectedItem().toString()+"-"+spnDia2.getValue().toString() +
+                        "')";
+		Conexiones.Conexion.ABCC(sql);
+                
                 metodoRestablecer();
+                mostrarEmpleados(TablaEmpleados, "Select * from vista_empleados");
 
                 JOptionPane.showMessageDialog(this, "Modificacion completada!!!");
             }
@@ -595,12 +601,6 @@ public class ABCCEmployees extends javax.swing.JFrame {
             }else if(cobGenero.getSelectedItem().equals("Seleccionar genero...")){
                 JOptionPane.showMessageDialog(this, "No olvides selecionar un genero", "Atencion!!!!", JOptionPane.INFORMATION_MESSAGE);
             }else{
-                
-                System.out.println();
-                System.out.println();
-                System.out.println();
-                System.out.println();
-                System.out.println();
                 
                 String sql="select InsertarEmpleado("+10000+ ", '" +
                         spnA.getValue().toString()+"-"+cobMes.getSelectedItem().toString()+"-"+spnDia.getValue().toString()+ "', '" +
