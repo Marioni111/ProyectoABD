@@ -33,32 +33,32 @@ public class Salarios extends javax.swing.JFrame {
         
         SpinnerNumberModel modeloSpinner = new SpinnerNumberModel();
         modeloSpinner.setMaximum(2200);
-        modeloSpinner.setMinimum(0);
+        modeloSpinner.setMinimum(1);
         modeloSpinner.setStepSize(1);
-        modeloSpinner.setValue(0);
+        modeloSpinner.setValue(1);
         spnA.setModel(modeloSpinner);
         spnA2.setModel(modeloSpinner);
         
         SpinnerNumberModel modeloSpinner2 = new SpinnerNumberModel();
         modeloSpinner2.setMaximum(31);
-        modeloSpinner2.setMinimum(0);
+        modeloSpinner2.setMinimum(1);
         modeloSpinner2.setStepSize(1);
-        modeloSpinner2.setValue(0);
+        modeloSpinner2.setValue(1);
         spnDia.setModel(modeloSpinner2);
         spnDia2.setModel(modeloSpinner2);
         
         SpinnerNumberModel modeloSpinner3 = new SpinnerNumberModel();
         modeloSpinner3.setMaximum(2200);
-        modeloSpinner3.setMinimum(0);
+        modeloSpinner3.setMinimum(1);
         modeloSpinner3.setStepSize(1);
-        modeloSpinner3.setValue(0);
+        modeloSpinner3.setValue(1);
         spnA2.setModel(modeloSpinner3);
         
         SpinnerNumberModel modeloSpinner4 = new SpinnerNumberModel();
         modeloSpinner4.setMaximum(31);
-        modeloSpinner4.setMinimum(0);
+        modeloSpinner4.setMinimum(1);
         modeloSpinner4.setStepSize(1);
-        modeloSpinner4.setValue(0);
+        modeloSpinner4.setValue(1);
         spnDia2.setModel(modeloSpinner4);
         
     }
@@ -174,14 +174,14 @@ public class Salarios extends javax.swing.JFrame {
         jLabel5.setText("----------------------------------------------------------------------------------------------------------------------------------------------");
 
         lblPlataforma5.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        lblPlataforma5.setText("De la fecha:");
+        lblPlataforma5.setText("De la fecha AAAA/MM/DD:");
 
         lblCantidad5.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        lblCantidad5.setText("Hasta la fecha:");
+        lblCantidad5.setText("Hasta la fecha AAAA/MM/DD:");
 
-        cobMes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar mes...", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
+        cobMes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
 
-        cobMes2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar mes...", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
+        cobMes2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
 
         btnAgregar.setText("Agregar");
         btnAgregar.addActionListener(new java.awt.event.ActionListener() {
@@ -223,6 +223,45 @@ public class Salarios extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addGap(61, 61, 61)
+                        .addComponent(btnAgregar)
+                        .addGap(10, 10, 10)
+                        .addComponent(btnCambiar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnBuscar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnEliminar))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addGap(211, 211, 211)
+                                .addComponent(lblPrecio)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(spnSalario, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addGap(46, 46, 46)
+                                .addComponent(spnA, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(cobMes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(spnDia, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addGap(18, 18, 18)
+                .addComponent(btnLimpiar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnRegresar)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(spnA2, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addComponent(cobMes2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(spnDia2, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(90, 90, 90))
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(45, 45, 45)
@@ -231,51 +270,13 @@ public class Salarios extends javax.swing.JFrame {
                         .addComponent(txtIdEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel5)))
+                        .addComponent(jLabel5))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(74, 74, 74)
+                        .addComponent(lblPlataforma5)
+                        .addGap(120, 120, 120)
+                        .addComponent(lblCantidad5)))
                 .addContainerGap(14, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                        .addGap(211, 211, 211)
-                        .addComponent(lblPrecio)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(spnSalario, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(spnA, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cobMes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(spnDia, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(69, 69, 69)
-                        .addComponent(spnA2, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(61, 61, 61)
-                        .addComponent(btnAgregar)
-                        .addGap(10, 10, 10)
-                        .addComponent(btnCambiar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnBuscar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnEliminar)))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(cobMes2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(spnDia2, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnLimpiar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnRegresar)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(122, 122, 122)
-                .addComponent(lblPlataforma5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblCantidad5)
-                .addGap(99, 99, 99))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -290,8 +291,8 @@ public class Salarios extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(36, 36, 36)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblPlataforma5)
-                            .addComponent(lblCantidad5)))
+                            .addComponent(lblCantidad5)
+                            .addComponent(lblPlataforma5, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(spnSalario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(lblPrecio)))
@@ -300,9 +301,9 @@ public class Salarios extends javax.swing.JFrame {
                     .addComponent(spnA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cobMes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(spnDia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(spnA2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cobMes2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(spnDia2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(spnDia2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(spnA2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -397,7 +398,9 @@ public class Salarios extends javax.swing.JFrame {
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         
-        mostrarSalarios(TablaSalarios, "Select * from vista_salarios where emp_no ");
+        mostrarSalarios(TablaSalarios, "Select * from vista_salarios where salary = " + spnSalario.getValue() + 
+                                       "OR from_date = '" +spnA.getValue().toString()+ "-" + cobMes.getSelectedItem().toString() + "-" + spnDia.getValue().toString() +
+                                       "' OR to_date = '" +spnA2.getValue().toString()+ "-" + cobMes2.getSelectedItem().toString() + "-" + spnDia2.getValue().toString() + "';");
         
     }//GEN-LAST:event_btnBuscarActionPerformed
 
@@ -416,29 +419,29 @@ public class Salarios extends javax.swing.JFrame {
         int mes = 0;
         
         if((TablaSalarios.getValueAt(col, 2)+"").substring(5, 7).equals("01")) {
-            mes = 1;
+            mes = 0;
 	}else if((TablaSalarios.getValueAt(col, 2)+"").substring(5, 7).equals("02")) {
-            mes = 2;
+            mes = 1;
 	}else if((TablaSalarios.getValueAt(col, 2)+"").substring(5, 7).equals("03")) {
-            mes = 3;
+            mes = 2;
 	}else if((TablaSalarios.getValueAt(col, 2)+"").substring(5, 7).equals("04")) {
-            mes = 4;
+            mes = 3;
 	}else if((TablaSalarios.getValueAt(col, 2)+"").substring(5, 7).equals("05")) {
-            mes = 5;
+            mes = 4;
 	}else if((TablaSalarios.getValueAt(col, 2)+"").substring(5, 7).equals("06")) {
-            mes = 6;
+            mes = 5;
 	}else if((TablaSalarios.getValueAt(col, 2)+"").substring(5, 7).equals("07")) {
-            mes = 7;
+            mes = 6;
 	}else if((TablaSalarios.getValueAt(col, 2)+"").substring(5, 7).equals("08")) {
-            mes = 8;
+            mes = 7;
 	}else if((TablaSalarios.getValueAt(col, 2)+"").substring(5, 7).equals("09")) {
-            mes = 9;
+            mes = 8;
 	}else if((TablaSalarios.getValueAt(col, 2)+"").substring(5, 7).equals("10")) {
-            mes = 10;
+            mes = 9;
 	}else if((TablaSalarios.getValueAt(col, 2)+"").substring(5, 7).equals("11")) {
-            mes = 11;
+            mes = 10;
 	}else if((TablaSalarios.getValueAt(col, 2)+"").substring(5, 7).equals("12")) {
-            mes = 12;
+            mes = 11;
 	}
         
         cobMes.setSelectedIndex(mes);
@@ -446,29 +449,29 @@ public class Salarios extends javax.swing.JFrame {
         int mes2 = 0;
         
         if((TablaSalarios.getValueAt(col, 3)+"").substring(5, 7).equals("01")) {
-            mes2 = 1;
+            mes2 = 0;
 	}else if((TablaSalarios.getValueAt(col, 3)+"").substring(5, 7).equals("02")) {
-            mes2 = 2;
+            mes2 = 1;
 	}else if((TablaSalarios.getValueAt(col, 3)+"").substring(5, 7).equals("03")) {
-            mes2 = 3;
+            mes2 = 2;
 	}else if((TablaSalarios.getValueAt(col, 3)+"").substring(5, 7).equals("04")) {
-            mes2 = 4;
+            mes2 = 3;
 	}else if((TablaSalarios.getValueAt(col, 3)+"").substring(5, 7).equals("05")) {
-            mes2 = 5;
+            mes2 = 4;
 	}else if((TablaSalarios.getValueAt(col, 3)+"").substring(5, 7).equals("06")) {
-            mes2 = 6;
+            mes2 = 5;
 	}else if((TablaSalarios.getValueAt(col, 3)+"").substring(5, 7).equals("07")) {
-            mes2 = 7;
+            mes2 = 6;
 	}else if((TablaSalarios.getValueAt(col, 3)+"").substring(5, 7).equals("08")) {
-            mes2 = 8;
+            mes2 = 7;
 	}else if((TablaSalarios.getValueAt(col, 3)+"").substring(5, 7).equals("09")) {
-            mes2 = 9;
+            mes2 = 8;
 	}else if((TablaSalarios.getValueAt(col, 3)+"").substring(5, 7).equals("10")) {
-            mes2 = 10;
+            mes2 = 9;
 	}else if((TablaSalarios.getValueAt(col, 3)+"").substring(5, 7).equals("11")) {
-            mes2 = 11;
+            mes2 = 10;
 	}else if((TablaSalarios.getValueAt(col, 3)+"").substring(5, 7).equals("12")) {
-            mes2 = 12;
+            mes2 = 11;
 	}
         
         cobMes2.setSelectedIndex(mes2);
@@ -522,11 +525,11 @@ public class Salarios extends javax.swing.JFrame {
         txtIdEmpleado.setText("");
         cobMes.setSelectedIndex(0);
 	cobMes2.setSelectedIndex(0);
-        spnSalario.setValue(0);
-        spnDia.setValue(0);
-        spnDia2.setValue(0);
-        spnA.setValue(0);
-        spnA2.setValue(0);
+        spnSalario.setValue(1);
+        spnDia.setValue(1);
+        spnDia2.setValue(1);
+        spnA.setValue(1);
+        spnA2.setValue(1);
     }
     /**
      * @param args the command line arguments
