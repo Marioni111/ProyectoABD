@@ -163,25 +163,9 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <Group type="103" groupAlignment="1" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
-                          <Component id="btnAgregar" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                          <Component id="btnCambiar" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Component id="btnBuscar" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="btnEliminar" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="211" max="-2" attributes="0"/>
-                                  <Component id="lblPrecio" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="spnSalario" min="-2" pref="82" max="-2" attributes="0"/>
-                              </Group>
+                          <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                                   <Component id="spnA" min="-2" pref="72" max="-2" attributes="0"/>
@@ -190,13 +174,28 @@
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="spnDia" min="-2" pref="48" max="-2" attributes="0"/>
                               </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="172" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="btnCambiar" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblPrecio" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="spnSalario" min="-2" pref="82" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <EmptySpace type="separate" pref="165" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="btnAgregar" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="129" max="-2" attributes="0"/>
+                          <Component id="btnBuscar" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="btnLimpiar" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="btnLimpiar" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
                   <Component id="btnRegresar" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -283,7 +282,6 @@
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="btnAgregar" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="btnCambiar" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="btnEliminar" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="btnLimpiar" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="btnBuscar" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -414,14 +412,6 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCambiarActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JButton" name="btnEliminar">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Eliminar"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEliminarActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnLimpiar">

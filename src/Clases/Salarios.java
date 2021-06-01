@@ -92,7 +92,6 @@ public class Salarios extends javax.swing.JFrame {
         spnDia2 = new javax.swing.JSpinner();
         btnAgregar = new javax.swing.JButton();
         btnCambiar = new javax.swing.JButton();
-        btnEliminar = new javax.swing.JButton();
         btnLimpiar = new javax.swing.JButton();
         btnBuscar = new javax.swing.JButton();
 
@@ -196,13 +195,6 @@ public class Salarios extends javax.swing.JFrame {
             }
         });
 
-        btnEliminar.setText("Eliminar");
-        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEliminarActionPerformed(evt);
-            }
-        });
-
         btnLimpiar.setText("Limpiar");
         btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -222,34 +214,32 @@ public class Salarios extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                        .addGap(61, 61, 61)
-                        .addComponent(btnAgregar)
-                        .addGap(10, 10, 10)
-                        .addComponent(btnCambiar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnBuscar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnEliminar))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                .addGap(211, 211, 211)
-                                .addComponent(lblPrecio)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(spnSalario, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(46, 46, 46)
                                 .addComponent(spnA, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(cobMes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(spnDia, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addGap(18, 18, 18)
-                .addComponent(btnLimpiar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(spnDia, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(172, 172, 172)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(btnCambiar)
+                                    .addComponent(lblPrecio))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(spnSalario, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 165, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnAgregar)
+                        .addGap(129, 129, 129)
+                        .addComponent(btnBuscar)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnLimpiar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addComponent(btnRegresar)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -317,7 +307,6 @@ public class Salarios extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnAgregar)
                             .addComponent(btnCambiar)
-                            .addComponent(btnEliminar)
                             .addComponent(btnLimpiar)
                             .addComponent(btnBuscar))
                         .addContainerGap(33, Short.MAX_VALUE))))
@@ -371,28 +360,24 @@ public class Salarios extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "No olvides ingresar la fecha de inicio", "Atencion!!!!", JOptionPane.INFORMATION_MESSAGE);
             }else if(cobMes2.getSelectedItem().equals("Seleccionar mes")|| spnA2.getValue().equals(0) || spnDia2.getValue().equals(0)){
                 JOptionPane.showMessageDialog(this, "No olvides ingresar la fecha de finalizacion", "Atencion!!!!", JOptionPane.INFORMATION_MESSAGE);
+            }else if(txtIdEmpleado.getText().isEmpty()){
+                JOptionPane.showMessageDialog(this, "No olvides ingresar el id del juego", "Atencion!!!!", JOptionPane.INFORMATION_MESSAGE);
             }else{
+                
+                String sql="select actualizarSalario("+Integer.parseInt(txtIdEmpleado.getText()+"")+ ", '" +
+                        spnA.getValue().toString()+"-"+cobMes.getSelectedItem().toString()+"-"+spnDia.getValue().toString()+ "', " +
+                        Integer.parseInt(spnSalario.getValue()+"") + ", '" +
+                        spnA2.getValue().toString()+"-"+cobMes2.getSelectedItem().toString()+"-"+spnDia2.getValue().toString() +
+                        "')";
+		Conexiones.Conexion.ABCC(sql);
+                
+                metodoRestablecer();
+                
                 JOptionPane.showMessageDialog(this, "Modificacion completada!!!");
             }
         } catch (Exception e) {
         }
     }//GEN-LAST:event_btnCambiarActionPerformed
-
-    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        
-            if(txtIdEmpleado.getText().isEmpty()){
-                JOptionPane.showMessageDialog(this, "No olvides ingresar el titulo del juego", "Atencion!!!!", JOptionPane.INFORMATION_MESSAGE);
-            }else{
-                
-                
-                
-                mostrarSalarios(TablaSalarios, "Select * from vista_salarios");
-                txtIdEmpleado.setText("");
-
-                JOptionPane.showMessageDialog(this, "El empleado se a dado de baja");
-            }
-        
-    }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
         metodoRestablecer();
@@ -575,7 +560,6 @@ public class Salarios extends javax.swing.JFrame {
     private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnCambiar;
-    private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnLimpiar;
     private javax.swing.JButton btnRegresar;
     private javax.swing.JComboBox<String> cobMes;
