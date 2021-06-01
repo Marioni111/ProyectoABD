@@ -32,32 +32,32 @@ public class ABCCEmployees extends javax.swing.JFrame {
         
         SpinnerNumberModel modeloSpinner = new SpinnerNumberModel();
         modeloSpinner.setMaximum(2200);
-        modeloSpinner.setMinimum(0);
+        modeloSpinner.setMinimum(1);
         modeloSpinner.setStepSize(1);
-        modeloSpinner.setValue(0);
+        modeloSpinner.setValue(1);
         spnA.setModel(modeloSpinner);
         spnA2.setModel(modeloSpinner);
         
         SpinnerNumberModel modeloSpinner2 = new SpinnerNumberModel();
         modeloSpinner2.setMaximum(31);
-        modeloSpinner2.setMinimum(0);
+        modeloSpinner2.setMinimum(1);
         modeloSpinner2.setStepSize(1);
-        modeloSpinner2.setValue(0);
+        modeloSpinner2.setValue(1);
         spnDia.setModel(modeloSpinner2);
         spnDia2.setModel(modeloSpinner2);
         
         SpinnerNumberModel modeloSpinner3 = new SpinnerNumberModel();
         modeloSpinner3.setMaximum(2200);
-        modeloSpinner3.setMinimum(0);
+        modeloSpinner3.setMinimum(1);
         modeloSpinner3.setStepSize(1);
-        modeloSpinner3.setValue(0);
+        modeloSpinner3.setValue(1);
         spnA2.setModel(modeloSpinner3);
         
         SpinnerNumberModel modeloSpinner4 = new SpinnerNumberModel();
         modeloSpinner4.setMaximum(31);
-        modeloSpinner4.setMinimum(0);
+        modeloSpinner4.setMinimum(1);
         modeloSpinner4.setStepSize(1);
-        modeloSpinner4.setValue(0);
+        modeloSpinner4.setValue(1);
         spnDia2.setModel(modeloSpinner4);
         
     }
@@ -94,6 +94,8 @@ public class ABCCEmployees extends javax.swing.JFrame {
         cobMes2 = new javax.swing.JComboBox<>();
         spnA2 = new javax.swing.JSpinner();
         spnDia2 = new javax.swing.JSpinner();
+        btnBuscar = new javax.swing.JButton();
+        lblCantidad6 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         TablaEmpleados = new javax.swing.JTable();
         jPanel5 = new javax.swing.JPanel();
@@ -132,7 +134,7 @@ public class ABCCEmployees extends javax.swing.JFrame {
             }
         });
 
-        cobMes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar mes...", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
+        cobMes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
         cobMes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cobMesActionPerformed(evt);
@@ -230,49 +232,65 @@ public class ABCCEmployees extends javax.swing.JFrame {
             }
         });
 
-        cobMes2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar mes...", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
+        cobMes2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
+
+        btnBuscar.setText("Buscar");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
+
+        lblCantidad6.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        lblCantidad6.setText("Buscar con fechas:");
 
         javax.swing.GroupLayout panelABCCEmployeesLayout = new javax.swing.GroupLayout(panelABCCEmployees);
         panelABCCEmployees.setLayout(panelABCCEmployeesLayout);
         panelABCCEmployeesLayout.setHorizontalGroup(
             panelABCCEmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelABCCEmployeesLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
                 .addGroup(panelABCCEmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelABCCEmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(panelABCCEmployeesLayout.createSequentialGroup()
+                            .addComponent(lblTitulo5)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(txtNombreEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(panelABCCEmployeesLayout.createSequentialGroup()
+                            .addComponent(lblEstudio5)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(txtApellidoEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(panelABCCEmployeesLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(panelABCCEmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelABCCEmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(panelABCCEmployeesLayout.createSequentialGroup()
-                                    .addComponent(lblTitulo5)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(txtNombreEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(panelABCCEmployeesLayout.createSequentialGroup()
-                                    .addComponent(lblEstudio5)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(txtApellidoEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(panelABCCEmployeesLayout.createSequentialGroup()
-                                .addComponent(lblGenero5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(cobGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblCantidad5))
-                    .addGroup(panelABCCEmployeesLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblPlataforma5)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(panelABCCEmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(spnA, javax.swing.GroupLayout.DEFAULT_SIZE, 67, Short.MAX_VALUE)
-                    .addComponent(spnA2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(panelABCCEmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(lblGenero5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(cobGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(panelABCCEmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelABCCEmployeesLayout.createSequentialGroup()
-                        .addComponent(cobMes2, 0, 1, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(spnDia2, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(panelABCCEmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblCantidad5)
+                            .addGroup(panelABCCEmployeesLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lblPlataforma5)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(panelABCCEmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(spnA, javax.swing.GroupLayout.DEFAULT_SIZE, 67, Short.MAX_VALUE)
+                            .addComponent(spnA2)))
+                    .addComponent(lblCantidad6, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(panelABCCEmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(panelABCCEmployeesLayout.createSequentialGroup()
                         .addComponent(cobMes, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(spnDia, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(spnDia, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelABCCEmployeesLayout.createSequentialGroup()
+                        .addGroup(panelABCCEmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cobMes2, 0, 1, Short.MAX_VALUE)
+                            .addGroup(panelABCCEmployeesLayout.createSequentialGroup()
+                                .addComponent(btnBuscar)
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(spnDia2, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
             .addGroup(panelABCCEmployeesLayout.createSequentialGroup()
                 .addGap(33, 33, 33)
@@ -308,10 +326,18 @@ public class ABCCEmployees extends javax.swing.JFrame {
                     .addComponent(txtIdEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel5)
-                .addGroup(panelABCCEmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelABCCEmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(panelABCCEmployeesLayout.createSequentialGroup()
-                        .addGap(41, 41, 41)
+                        .addComponent(jLabel5)
+                        .addGap(23, 23, 23)
+                        .addGroup(panelABCCEmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtNombreEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblTitulo5))
+                        .addGap(21, 21, 21)
+                        .addGroup(panelABCCEmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblEstudio5)
+                            .addComponent(txtApellidoEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(panelABCCEmployeesLayout.createSequentialGroup()
                         .addGroup(panelABCCEmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblPlataforma5)
                             .addComponent(cobMes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -322,20 +348,13 @@ public class ABCCEmployees extends javax.swing.JFrame {
                             .addComponent(lblCantidad5)
                             .addComponent(cobMes2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(spnA2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(spnDia2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(panelABCCEmployeesLayout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addGroup(panelABCCEmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtNombreEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblTitulo5))
-                        .addGap(21, 21, 21)
-                        .addGroup(panelABCCEmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblEstudio5)
-                            .addComponent(txtApellidoEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(panelABCCEmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblGenero5)
-                            .addComponent(cobGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(spnDia2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(18, 18, 18)
+                .addGroup(panelABCCEmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblGenero5)
+                    .addComponent(cobGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBuscar)
+                    .addComponent(lblCantidad6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addGroup(panelABCCEmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAgregar)
@@ -393,7 +412,7 @@ public class ABCCEmployees extends javax.swing.JFrame {
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblVender2, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
+                .addComponent(lblVender2, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -459,29 +478,29 @@ public class ABCCEmployees extends javax.swing.JFrame {
         int mes = 0;
         
         if((TablaEmpleados.getValueAt(col, 1)+"").substring(5, 7).equals("01")) {
-            mes = 1;
+            mes = 0;
 	}else if((TablaEmpleados.getValueAt(col, 1)+"").substring(5, 7).equals("02")) {
-            mes = 2;
+            mes = 1;
 	}else if((TablaEmpleados.getValueAt(col, 1)+"").substring(5, 7).equals("03")) {
-            mes = 3;
+            mes = 2;
 	}else if((TablaEmpleados.getValueAt(col, 1)+"").substring(5, 7).equals("04")) {
-            mes = 4;
+            mes = 3;
 	}else if((TablaEmpleados.getValueAt(col, 1)+"").substring(5, 7).equals("05")) {
-            mes = 5;
+            mes = 4;
 	}else if((TablaEmpleados.getValueAt(col, 1)+"").substring(5, 7).equals("06")) {
-            mes = 6;
+            mes = 5;
 	}else if((TablaEmpleados.getValueAt(col, 1)+"").substring(5, 7).equals("07")) {
-            mes = 7;
+            mes = 6;
 	}else if((TablaEmpleados.getValueAt(col, 1)+"").substring(5, 7).equals("08")) {
-            mes = 8;
+            mes = 7;
 	}else if((TablaEmpleados.getValueAt(col, 1)+"").substring(5, 7).equals("09")) {
-            mes = 9;
+            mes = 8;
 	}else if((TablaEmpleados.getValueAt(col, 1)+"").substring(5, 7).equals("10")) {
-            mes = 10;
+            mes = 9;
 	}else if((TablaEmpleados.getValueAt(col, 1)+"").substring(5, 7).equals("11")) {
-            mes = 11;
+            mes = 10;
 	}else if((TablaEmpleados.getValueAt(col, 1)+"").substring(5, 7).equals("12")) {
-            mes = 12;
+            mes = 11;
 	}
         
         cobMes.setSelectedIndex(mes);
@@ -489,29 +508,29 @@ public class ABCCEmployees extends javax.swing.JFrame {
         int mes2 = 0;
         
         if((TablaEmpleados.getValueAt(col, 5)+"").substring(5, 7).equals("01")) {
-            mes2 = 1;
+            mes2 = 0;
 	}else if((TablaEmpleados.getValueAt(col, 5)+"").substring(5, 7).equals("02")) {
-            mes2 = 2;
+            mes2 = 1;
 	}else if((TablaEmpleados.getValueAt(col, 5)+"").substring(5, 7).equals("03")) {
-            mes2 = 3;
+            mes2 = 2;
 	}else if((TablaEmpleados.getValueAt(col, 5)+"").substring(5, 7).equals("04")) {
-            mes2 = 4;
+            mes2 = 3;
 	}else if((TablaEmpleados.getValueAt(col, 5)+"").substring(5, 7).equals("05")) {
-            mes2 = 5;
+            mes2 = 4;
 	}else if((TablaEmpleados.getValueAt(col, 5)+"").substring(5, 7).equals("06")) {
-            mes2 = 6;
+            mes2 = 5;
 	}else if((TablaEmpleados.getValueAt(col, 5)+"").substring(5, 7).equals("07")) {
-            mes2 = 7;
+            mes2 = 6;
 	}else if((TablaEmpleados.getValueAt(col, 5)+"").substring(5, 7).equals("08")) {
-            mes2 = 8;
+            mes2 = 7;
 	}else if((TablaEmpleados.getValueAt(col, 5)+"").substring(5, 7).equals("09")) {
-            mes2 = 9;
+            mes2 = 8;
 	}else if((TablaEmpleados.getValueAt(col, 5)+"").substring(5, 7).equals("10")) {
-            mes2 = 10;
+            mes2 = 9;
 	}else if((TablaEmpleados.getValueAt(col, 5)+"").substring(5, 7).equals("11")) {
-            mes2 = 11;
+            mes2 = 10;
 	}else if((TablaEmpleados.getValueAt(col, 5)+"").substring(5, 7).equals("12")) {
-            mes2 = 12;
+            mes2 = 11;
 	}
         
         cobMes2.setSelectedIndex(mes2);
@@ -584,8 +603,8 @@ public class ABCCEmployees extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
-        mostrarEmpleados(TablaEmpleados, "Select * from vista_empleados");
-        metodoRestablecer();
+         metodoRestablecer();
+         mostrarEmpleados(TablaEmpleados, "Select * from vista_empleados");
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
     private void cobGeneroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cobGeneroActionPerformed
@@ -674,6 +693,13 @@ public class ABCCEmployees extends javax.swing.JFrame {
         System.out.println("hola");
     }//GEN-LAST:event_spnAMousePressed
 
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+
+        mostrarEmpleados(TablaEmpleados, "Select * from vista_empleados where  birth_date = '" +spnA.getValue().toString()+ "-" + cobMes.getSelectedItem().toString() + "-" + spnDia.getValue().toString() +
+                                         "' OR hire_date = '" +spnA2.getValue().toString()+ "-" + cobMes2.getSelectedItem().toString() + "-" + spnDia2.getValue().toString() + "';");
+
+    }//GEN-LAST:event_btnBuscarActionPerformed
+
     static ResultSet res; 
     
     public void mostrarEmpleados(JTable tabla,String com){
@@ -706,10 +732,10 @@ public class ABCCEmployees extends javax.swing.JFrame {
         cobGenero.setSelectedIndex(0);
         cobMes.setSelectedIndex(0);
 	cobMes2.setSelectedIndex(0);
-        spnDia.setValue(0);
-        spnDia2.setValue(0);
-        spnA.setValue(0);
-        spnA2.setValue(0);
+        spnDia.setValue(1);
+        spnDia2.setValue(1);
+        spnA.setValue(1);
+        spnA2.setValue(1);
     }
     
     /**
@@ -751,6 +777,7 @@ public class ABCCEmployees extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable TablaEmpleados;
     private javax.swing.JButton btnAgregar;
+    private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnCambiar;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnLimpiar;
@@ -763,6 +790,7 @@ public class ABCCEmployees extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblCantidad5;
+    private javax.swing.JLabel lblCantidad6;
     private javax.swing.JLabel lblEstudio5;
     private javax.swing.JLabel lblGenero5;
     private javax.swing.JLabel lblPlataforma5;
