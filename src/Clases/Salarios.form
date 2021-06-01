@@ -262,13 +262,15 @@
                       </Group>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="spnA" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="cobMes" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="spnDia" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="spnDia2" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="spnA2" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="cobMes2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="spnA" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="cobMes" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="spnDia" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="spnA2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="cobMes2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">

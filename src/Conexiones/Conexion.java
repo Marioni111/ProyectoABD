@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import java.sql.Statement;
+import java.sql.PreparedStatement;
 
 public class Conexion {
     
@@ -14,6 +15,7 @@ public class Conexion {
     public static String usuario;
     public static String password;
     public static boolean status = false;
+    private static PreparedStatement pstm;
     
     public static Connection getConnection(){
         
@@ -45,6 +47,18 @@ public class Conexion {
         return status;
     }
       
+    public static boolean ABCC(String sql) {
+        try {
+            String consulta = sql;
+            pstm = contacto.prepareStatement(consulta);
+            pstm.executeUpdate();
+            return true;
+     } catch (Exception ex) {
+            System.out.println(ex.toString());
+     }
+     return false;
+    }
+    
     public static ResultSet Consulta(String consulta){
     Connection con = getConnection();
     Statement declara;

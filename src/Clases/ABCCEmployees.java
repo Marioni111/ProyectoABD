@@ -6,7 +6,6 @@
 package Clases;
 
 import static Clases.Empleados.res;
-import Conexiones.Procedimientos;
 import com.sun.glass.events.KeyEvent;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -438,16 +437,11 @@ public class ABCCEmployees extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void TablaEmpleadosKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TablaEmpleadosKeyPressed
-        metodoRestablecer();
-        
-        int col = TablaEmpleados.getSelectedRow();
-        txtIdEmpleado.setText(TablaEmpleados.getValueAt(col, 0).toString());
-        txtNombreEmpleado.setText(TablaEmpleados.getValueAt(col, 2).toString());
+
         
     }//GEN-LAST:event_TablaEmpleadosKeyPressed
 
     private void TablaEmpleadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablaEmpleadosMouseClicked
-        metodoRestablecer();
         
         int col = TablaEmpleados.getSelectedRow();
         txtIdEmpleado.setText(TablaEmpleados.getValueAt(col, 0).toString());
@@ -457,13 +451,6 @@ public class ABCCEmployees extends javax.swing.JFrame {
         spnDia2.setValue(Integer.parseInt((TablaEmpleados.getValueAt(col, 5)+"").substring(8, 10)));
         spnA.setValue(Integer.parseInt((TablaEmpleados.getValueAt(col, 1)+"").substring(0, 4)));
         spnA2.setValue(Integer.parseInt((TablaEmpleados.getValueAt(col, 5)+"").substring(0, 4)));
-        
-        System.out.println(TablaEmpleados.getValueAt(col, 0));
-        System.out.println(TablaEmpleados.getValueAt(col, 1));
-        System.out.println(TablaEmpleados.getValueAt(col, 2));
-        System.out.println(TablaEmpleados.getValueAt(col, 3));
-        System.out.println(TablaEmpleados.getValueAt(col, 4));
-        System.out.println(TablaEmpleados.getValueAt(col, 5));
         
         int genero = 0;
         
@@ -537,21 +524,29 @@ public class ABCCEmployees extends javax.swing.JFrame {
     }//GEN-LAST:event_TablaEmpleadosMouseClicked
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        try{
+
             if(txtIdEmpleado.getText().isEmpty()){
                 JOptionPane.showMessageDialog(this, "No olvides ingresar el titulo del juego", "Atencion!!!!", JOptionPane.INFORMATION_MESSAGE);
             }else{
-                Procedimientos.eliminarJuego(txtIdEmpleado.getText());
+                eliminarRegistro(txtIdEmpleado.getText());
+                
                 mostrarEmpleados(TablaEmpleados, "Select * from vista_empleados");
                 txtIdEmpleado.setText("");
 
                 JOptionPane.showMessageDialog(this, "El empleado se a dado de baja");
             }
-        }catch(SQLException e){
-
-        }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
+    public boolean eliminarRegistro(String nc) {
+		
+		boolean resultado = false;
+		
+		String sql="select eliminarempleado("+nc+")";
+		resultado = Conexiones.Conexion.ABCC(sql);
+		
+		return resultado;
+	}
+    
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
         this.setVisible(false);
     }//GEN-LAST:event_btnRegresarActionPerformed
@@ -599,7 +594,28 @@ public class ABCCEmployees extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNombreEmpleadoKeyReleased
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-        // TODO add your handling code here:
+        try {
+            if(txtNombreEmpleado.getText().isEmpty()){
+                JOptionPane.showMessageDialog(this, "No olvides ingresar el nombre del empleado", "Atencion!!!!", JOptionPane.INFORMATION_MESSAGE);
+            }else if(txtApellidoEmpleado.getText().isEmpty()){
+                JOptionPane.showMessageDialog(this, "No olvides ingresar el apellido del empleado", "Atencion!!!!", JOptionPane.INFORMATION_MESSAGE);
+            }else if(cobGenero.getSelectedItem().equals("Seleccionar genero...")){
+                JOptionPane.showMessageDialog(this, "No olvides selecionar un genero", "Atencion!!!!", JOptionPane.INFORMATION_MESSAGE);
+            }else{
+                
+                System.out.println(spnA.getValue().toString()+"-"+cobMes.getSelectedItem().toString()+"-"+spnDia.getValue().toString());
+                System.out.println(txtNombreEmpleado.getText());
+                System.out.println(txtApellidoEmpleado.getText());
+                System.out.println(cobGenero.getSelectedItem().toString());
+                System.out.println(spnA2.getValue().toString()+"-"+cobMes2.getSelectedItem().toString()+"-"+spnDia2.getValue().toString());
+                
+                mostrarEmpleados(TablaEmpleados, "Select * from vista_empleados");
+                metodoRestablecer();
+
+                JOptionPane.showMessageDialog(this, "Empleado agregado!!!");
+            }
+        } catch (Exception e) {
+        }
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
