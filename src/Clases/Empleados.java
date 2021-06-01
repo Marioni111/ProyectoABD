@@ -70,14 +70,14 @@ public class Empleados extends javax.swing.JFrame {
         lblJuegosDisponibles.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         lblJuegosDisponibles.setForeground(new java.awt.Color(255, 255, 255));
         lblJuegosDisponibles.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblJuegosDisponibles.setText("Employee system");
+        lblJuegosDisponibles.setText("Sistema de empleados");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(46, 46, 46)
                 .addComponent(lblJuegosDisponibles)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -170,7 +170,7 @@ public class Empleados extends javax.swing.JFrame {
 
         menuSuperior.setText("Menu");
 
-        jMenuItemGrafica.setText("Guerra de consolas");
+        jMenuItemGrafica.setText("Lista cambios de sueldo");
         jMenuItemGrafica.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItemGraficaActionPerformed(evt);

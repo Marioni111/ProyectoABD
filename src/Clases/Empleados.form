@@ -27,7 +27,7 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItemGrafica">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Guerra de consolas"/>
+                <Property name="text" type="java.lang.String" value="Lista cambios de sueldo"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItemGraficaActionPerformed"/>
@@ -116,7 +116,7 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                       <Component id="lblJuegosDisponibles" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
@@ -142,7 +142,7 @@
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="Employee system"/>
+                <Property name="text" type="java.lang.String" value="Sistema de empleados"/>
               </Properties>
             </Component>
           </SubComponents>

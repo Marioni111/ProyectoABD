@@ -27,18 +27,17 @@ public class Graficas extends javax.swing.JFrame {
     public Graficas() {
         initComponents();
         
-        mostrarSalarios(tablaGraficas, "select * from vista_empleados_salario");
+        mostrarEmpleados(tablaGraficas, "select * from vista_empleados_salario");
         
         DefaultPieDataset dataSet = new DefaultPieDataset();
         
-        //dataSet.setValue("Nintendo Switch", new Double(obtenerInformacion("SELECT SUM(cantidad) FROM Vista_Juegos_Vendidos where plataforma = 'Nintendo switch';")));
-        //dataSet.setValue("PlayStation 4", new Double(obtenerInformacion("SELECT SUM(cantidad) FROM Vista_Juegos_Vendidos where plataforma = 'Playstation 4';")));
-        //dataSet.setValue("Xbox one", new Double(obtenerInformacion("SELECT SUM(cantidad) FROM Vista_Juegos_Vendidos where plataforma = 'Xbox one';")));
+        dataSet.setValue("Hombres", new Double(obtenerInformacion("SELECT COUNT(*) FROM vista_empleados_salario where gender = 'M';")));
+        dataSet.setValue("Mujeres", new Double(obtenerInformacion("SELECT COUNT(*) FROM vista_empleados_salario where gender = 'F';")));
         
-        JFreeChart ch = ChartFactory.createPieChart3D("Guerra de consolas", dataSet, true, true, false);
+        JFreeChart ch = ChartFactory.createPieChart3D("Cambios de sueldo", dataSet, true, true, false);
         ChartPanel cp = new ChartPanel(ch);
         panelGraficas.add(cp);
-        cp.setBounds(250, 30, 300, 300);
+        cp.setBounds(340, 30, 300, 300);
     }
     
      public int obtenerInformacion(String com){
@@ -54,7 +53,7 @@ public class Graficas extends javax.swing.JFrame {
      
     static ResultSet res; 
     
-    public void mostrarSalarios(JTable tabla,String com){
+    public void mostrarEmpleados(JTable tabla,String com){
         DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
         modelo.setRowCount(0);
         res=Conexiones.Conexion.Consulta(com);
@@ -65,7 +64,8 @@ public class Graficas extends javax.swing.JFrame {
                 v.add(res.getInt(1));
                 v.add(res.getString(2));
                 v.add(res.getString(3));
-                v.add(res.getInt(4));
+                v.add(res.getString(4));
+                v.add(res.getInt(5));
                 modelo.addRow(v);
                 tabla.setModel(modelo);
             }
@@ -95,13 +95,13 @@ public class Graficas extends javax.swing.JFrame {
 
         tablaGraficas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Emp_no", "Nombre", "Apellido", "Salario"
+                "Emp_no", "Gender", "Nombre", "Apellido", "Salario"
             }
         ));
         jScrollPane1.setViewportView(tablaGraficas);
@@ -122,15 +122,15 @@ public class Graficas extends javax.swing.JFrame {
             .addGroup(panelGraficasLayout.createSequentialGroup()
                 .addGroup(panelGraficasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelGraficasLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(20, 20, 20)
+                        .addComponent(btnRegresar3))
                     .addGroup(panelGraficasLayout.createSequentialGroup()
-                        .addGap(69, 69, 69)
+                        .addGap(100, 100, 100)
                         .addComponent(lblListaVentas))
                     .addGroup(panelGraficasLayout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(btnRegresar3)))
-                .addContainerGap(342, Short.MAX_VALUE))
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(336, Short.MAX_VALUE))
         );
         panelGraficasLayout.setVerticalGroup(
             panelGraficasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -148,9 +148,7 @@ public class Graficas extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(panelGraficas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(panelGraficas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

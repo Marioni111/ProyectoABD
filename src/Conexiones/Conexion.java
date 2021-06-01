@@ -16,7 +16,7 @@ public class Conexion {
     public static String password;
     public static boolean status = false;
     private static PreparedStatement pstm;
-    private static ResultSet rs;
+    private static ResultSet res;
     
     public static Connection getConnection(){
         
@@ -74,17 +74,15 @@ public class Conexion {
         return null;
     }
 
-    public static ResultSet Consulta2(String consulta){
-                  try {
-			
-			pstm = contacto.prepareStatement(consulta);
-			rs = pstm.executeQuery(consulta);		
-			
-		} catch (SQLException e) {
-			System.out.println("No se pudo ejecutar instruccion");
-			e.printStackTrace();
-		}
-		return rs;
+    public static int obtenerInformacion(String com){
+        res = Conexiones.Conexion.Consulta(com);
+        int variable = 0;
+        try {
+            res.next();
+            variable = res.getInt(1);  
+        } catch (Exception e) {
+        }
+        return variable;
     }
     
 }

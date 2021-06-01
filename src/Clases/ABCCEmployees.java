@@ -29,7 +29,7 @@ public class ABCCEmployees extends javax.swing.JFrame {
         
         mostrarEmpleados(TablaEmpleados, "Select * from vista_empleados");
         String sql="Select max(cantidad_emp) from vista_empleados";
-        txtEmpleadoTotales.setText(Conexiones.Conexion.Consulta2(sql) + "");
+        txtEmpleadoTotales.setText(Conexiones.Conexion.obtenerInformacion(sql) + "");
         
         SpinnerNumberModel modeloSpinner = new SpinnerNumberModel();
         modeloSpinner.setMaximum(2200);
@@ -581,7 +581,8 @@ public class ABCCEmployees extends javax.swing.JFrame {
                 
                 metodoRestablecer();
                 mostrarEmpleados(TablaEmpleados, "Select * from vista_empleados");
-
+                sql="Select max(cantidad_emp) from vista_empleados";
+                txtEmpleadoTotales.setText(Conexiones.Conexion.obtenerInformacion(sql) + "");
                 JOptionPane.showMessageDialog(this, "El empleado se a dado de baja");
             }
     }//GEN-LAST:event_btnEliminarActionPerformed
@@ -615,7 +616,6 @@ public class ABCCEmployees extends javax.swing.JFrame {
                 
                 metodoRestablecer();
                 mostrarEmpleados(TablaEmpleados, "Select * from vista_empleados");
-
                 JOptionPane.showMessageDialog(this, "Modificacion completada!!!");
             }
         } catch (Exception e) {
@@ -659,6 +659,8 @@ public class ABCCEmployees extends javax.swing.JFrame {
 		Conexiones.Conexion.ABCC(sql);
                 
                 metodoRestablecer();
+                sql="Select max(cantidad_emp) from vista_empleados";
+                txtEmpleadoTotales.setText(Conexiones.Conexion.obtenerInformacion(sql) + "");
                 mostrarEmpleados(TablaEmpleados, "Select * from vista_empleados");
 
                 JOptionPane.showMessageDialog(this, "Empleado agregado!!!");
