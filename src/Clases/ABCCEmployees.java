@@ -567,7 +567,12 @@ public class ABCCEmployees extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNombreEmpleadoActionPerformed
 
     private void txtIdEmpleadoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIdEmpleadoKeyReleased
+        if(txtIdEmpleado.getText().isEmpty() && evt.getKeyCode()==KeyEvent.VK_BACKSPACE){
+            
+            evt.consume();
+        }else{
         mostrarEmpleados(TablaEmpleados, "Select * from vista_empleados where emp_no = " + txtIdEmpleado.getText()+ ";");
+        }
     }//GEN-LAST:event_txtIdEmpleadoKeyReleased
 
     private void txtNombreEmpleadoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreEmpleadoKeyReleased
