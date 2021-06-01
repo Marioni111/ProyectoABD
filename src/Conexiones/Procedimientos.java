@@ -6,17 +6,14 @@ import java.sql.SQLException;
 
 public class Procedimientos {
     
-    public static void entradaJuego(String a, String b, String c, String d,  int e, double f, int g, String h, int i)throws SQLException{
-        CallableStatement entrada = Conexion.getConnection().prepareCall("{call InsertarJuego(?,?,?,?,?,?,?,?,?)}");
-        entrada.setString(1, a);
+    public static void InsertarEmpleado(int a, String b, String c, String d,  String e, String f)throws SQLException{
+        CallableStatement entrada = Conexion.getConnection().prepareCall("{call InsertarJuego(?,?,?,?,?,?)}");
+        entrada.setInt(1, a);
         entrada.setString(2, b);
         entrada.setString(3, c);
         entrada.setString(4, d);
-        entrada.setInt(5, e);
-        entrada.setDouble(6, f);
-        entrada.setInt(7, g);
-        entrada.setString(8, h);
-        entrada.setInt(9, i);
+        entrada.setString(5, e);
+        entrada.setString(6, f);
         entrada.execute();
     }
     public static void modificarJuego(String a, String b, String c, String d,  int e, double f, String g)throws SQLException{
